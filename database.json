@@ -1,0 +1,67 @@
+{
+  "posts": [
+    {
+      "id": 1,
+      "Firstname": "Merlins",
+      "Lastname": "Juliet",
+      "EmailId": "merlinsjuliet@gmail.com",
+      "password": "xxcvbnm"
+    },
+    {
+      "id": 2,
+      "Firstname": "Maha",
+      "Lastname": "Lakshmi",
+      "EmailId": "maha@gmail.com",
+      "password": "nbvhfgcdxr"
+    },
+    {
+      "id": 3,
+      "Firstname": "kaviya",
+      "Lastname": "dhayalan",
+      "EmailId": "kaviya@123.com",
+      "password": "123456"
+    },
+    {
+      "id": 4,
+      "Firstname": "kaviya",
+      "Lastname": "dhayalan",
+      "EmailId": "kaviya@123.com",
+      "password": "dfvgbhnm"
+    }
+  ],
+  "courses": [
+    {
+      "id": 1,
+      "name": "React",
+      "fees": "Free"
+    },
+    {
+      "id": 2,
+      "name": "Angular",
+      "fees": "Free"
+    },
+    {
+      "id": 3,
+      "name": "Javascript",
+      "fees": "Free"
+    },
+    {
+      "id": 4,
+      "name": "BigData",
+      "fees": "3000"
+    },
+    {
+      "id": 5,
+      "name": "AI",
+      "fees": "2500"
+    },
+    {
+      "id": 6,
+      "name": "DevOps",
+      "fees": "3500"
+    }
+  ],
+  "profile": {
+    "name": "typicode"
+  }
+}
