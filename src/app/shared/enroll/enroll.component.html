@@ -1,0 +1,60 @@
+<app-navbar></app-navbar>
+<ng-container *ngIf="courses.length!=0">
+    <div class="containeer">
+        <div class="card-table">
+     <div class="card-product">
+    <table class="table table-bordered ">
+        <thead>
+            <tr>
+                <th>SL.No</th>
+                <th>Course Name</th>
+                <th>Course Image</th>
+                <th>Description</th>
+                <th>Price</th>
+                <th>Delete</th>
+                <th>Total</th>
+
+
+            </tr>
+        </thead>
+
+        <tbody *ngFor="let item of courses; let i =index">
+            <tr>
+                <td>{{i+1}}</td>
+                <td>{{item.title}}</td>
+                <td><img style="width:120px;" src="{{item.image}}">  </td>
+                <td>{{item.description}}</td>
+                <td>{{item.price}}</td>
+                <td><button class="btn btn-danger"(click)="delete(item)"><i class="fas fa-trash"></i> </button></td>
+                <td>{{item.price}}</td>
+
+            </tr>
+            <tr> 
+   
+
+</tr>
+    </tbody>
+    <td colspan="4"></td>
+    <!-- <td><button (click)="emptyenroll()" class="btn btn-danger">Empty </button> </td> -->
+    <td><button routerLink="/course" class="btn btn-success">Enroll more </button> </td>
+    <td><button  class="btn btn-warning">Checkout </button> </td>
+    <td><strong>Grand Total:{{grandtotal| currency:'INR':'symbol':'3.0'}}</strong></td>
+    </table>
+   
+</div>
+
+        </div>
+    </div>
+</ng-container>
+
+
+
+<!--- empty cart-->
+
+<ng-container *ngIf="courses.length==0">
+    <div class="center">
+        <h4>Your course is Empty!!</h4>
+        <h6>Add item to it</h6>
+        <button routerLink="/course" class="btn btn-dark">Enroll now </button>
+    </div>
+</ng-container>
