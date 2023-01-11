@@ -2,66 +2,96 @@
   "posts": [
     {
       "id": 1,
-      "Firstname": "Merlins",
-      "Lastname": "Juliet",
-      "EmailId": "merlinsjuliet@gmail.com",
-      "password": "xxcvbnm"
-    },
-    {
-      "id": 2,
       "Firstname": "Maha",
       "Lastname": "Lakshmi",
       "EmailId": "maha@gmail.com",
-      "password": "nbvhfgcdxr"
+      "password": "Maha@01"
     },
     {
-      "id": 3,
-      "Firstname": "kaviya",
-      "Lastname": "dhayalan",
-      "EmailId": "kaviya@123.com",
-      "password": "123456"
+      "Firstname": "Sakthi",
+      "Lastname": "Vel",
+      "dob": "2001-08-10",
+      "EmailId": "sakthi@gmail.com",
+      "password": "Sakthi@01",
+      "confirmPassword": "Sakthi@01",
+      "acceptTerms": true,
+      "id": 2
+    },
+    {
+      "Firstname": "Vijay",
+      "Lastname": "Kumar",
+      "dob": "2001-05-03",
+      "EmailId": "vijay@gmail.com",
+      "password": "Vijay@01",
+      "confirmPassword": "Vijay@01",
+      "acceptTerms": true,
+      "id": 3
     },
     {
       "id": 4,
-      "Firstname": "kaviya",
-      "Lastname": "dhayalan",
-      "EmailId": "kaviya@123.com",
-      "password": "dfvgbhnm"
+      "Firstname": "Sri",
+      "Lastname": "Karthik",
+      "EmailId": "sri@gmail.com",
+      "password": "Karthik@gmail.com"
+    },
+    {
+      "id": 5,
+      "Firstname": "Pavithra",
+      "Lastname": "Jayavel",
+      "EmailId": "pavi@gmail.com",
+      "password": "Pavi@01"
+    },
+    {
+      "id": 6,
+      "Firstname": "Sharmila",
+      "Lastname": "Ramasamy",
+      "EmailId": "sharmila@gmail.com",
+      "password": "Sharmila@01"
     }
   ],
   "courses": [
     {
-      "id": 1,
-      "name": "React",
-      "fees": "Free"
+      "description": "Big Data is a collection of data that is huge in volume, yet growing exponentially with time. It is a data with so large size and complexity that none of traditional data management tools can store it or process it efficiently. Big data is also a data but with huge size.",
+      "id": "1",
+      "image": "../../assets/image/bigdata.jpg",
+      "price": 2000,
+      "title": "Big Data"
     },
     {
-      "id": 2,
-      "name": "Angular",
-      "fees": "Free"
+      "description": "DevOps (a portmanteau of “development” and “operations”) is the combination of practices and tools designed to increase an organization's ability to deliver applications and services faster than traditional software development processes.",
+      "id": "2",
+      "image": "../../assets/dev.webp",
+      "price": 3000,
+      "title": "DevOps"
     },
     {
-      "id": 3,
-      "name": "Javascript",
-      "fees": "Free"
+      "description": "Cyber security is the practice of defending computers, servers, mobile devices, electronic systems, networks, and data from malicious attacks. It's also known as information technology security or electronic information security.",
+      "id": "3",
+      "image": "../../assets/image/cyberimg.jpg",
+      "price": 3000,
+      "title": "CyberSecurity"
     },
     {
-      "id": 4,
-      "name": "BigData",
-      "fees": "3000"
+      "description": "Digital marketing, also called online marketing, is the promotion of brands to connect with potential customers using the internet and other forms of digital communication. ",
+      "id": "4",
+      "image": "../../assets/image/digital.webp",
+      "price": 3000,
+      "title": "Digital Marketing"
     },
     {
-      "id": 5,
-      "name": "AI",
-      "fees": "2500"
+      "description": "Angular is a platform and framework for building single-page client applications using HTML and TypeScript. Angular is written in TypeScript.",
+      "id": "5",
+      "image": "../../assets/image/angular.png",
+      "price": 2500,
+      "title": "Angular"
     },
     {
-      "id": 6,
-      "name": "DevOps",
-      "fees": "3500"
+      "description": "Artificial intelligence (AI) is the ability of a computer or a robot controlled by a computer to do tasks that are usually done by humans because they require human intelligence and discernment",
+      "id": "6",
+      "image": "../../assets/image/aiimg.jpg",
+      "price": 2500,
+      "title": "AI"
     }
-  ],
-  "profile": {
-    "name": "typicode"
-  }
+  ]
+
 }

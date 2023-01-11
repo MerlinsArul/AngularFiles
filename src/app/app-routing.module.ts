@@ -1,10 +1,10 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { LoginComponent } from './home/login/login.component';
+import { HomepageComponent } from './home/homepage/homepage.component';
+
+
 
 const routes: Routes = [
- {path:"course",loadChildren:()=>import('./course/course.module')
-.then(mod=>mod.CourseModule)},
  {path:"home",loadChildren:()=>import('./home/home.module')
 .then(mod=>mod.HomeModule)},
 {path:"shared",loadChildren:()=>import('./shared/shared.module')
@@ -13,7 +13,8 @@ const routes: Routes = [
 .then(mod=>mod.UserModule)},
 {path:"admin",loadChildren:()=>import('./admin/admin.module')
 .then(mod=>mod.AdminModule)},
-//{path:'login',component:LoginComponent}
+{path:'',component:HomepageComponent},
+
 
 ];
 

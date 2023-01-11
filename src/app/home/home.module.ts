@@ -5,7 +5,11 @@ import { HomepageComponent } from './homepage/homepage.component';
 import { LoginComponent } from './login/login.component';
 import { SignupComponent } from './signup/signup.component';
 import { SharedModule } from '../shared/shared.module';
-//import { NavbarComponent } from '../shared/navbar/navbar.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import { AboutusComponent } from './aboutus/aboutus.component';
+
+
+
 
 
 
@@ -14,13 +18,16 @@ import { SharedModule } from '../shared/shared.module';
     HomepageComponent,
     LoginComponent,
     SignupComponent,
-    //NavbarComponent
+    AboutusComponent,
+   
    
   ],
   imports: [
     CommonModule,
     HomeRoutingModule,
-    SharedModule
-  ]
+    SharedModule,
+    ReactiveFormsModule
+  ],
+
 })
 export class HomeModule { }

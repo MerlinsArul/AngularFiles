@@ -1,0 +1,42 @@
+.coln h1{
+
+    float:left;
+    margin-top: 16px;
+}
+.col1{
+    float:right;
+    margin-top: 16px;
+}
+.btnborder{
+    
+    color:black;
+}
+.home-section{
+    position: relative;
+    background: #f5f5f5;
+    min-height: 100vh;
+    width: calc(100% - 240px);
+    left: 240px;
+    transition: all 0.5s ease;
+    margin-left: 50px;
+  }
+
+  .home-section nav{
+    display: flex;
+    justify-content: space-between;
+    height: 80px;
+    background: #fff;
+    display: flex;
+    align-items: center;
+    position: fixed;
+    width: calc(100% - 240px);
+    left: 240px;
+    z-index: 100;
+    padding: 0 20px;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
+    transition: all 0.5s ease;
+  }
+  .mynav{
+    background: #0A2558 ;
+    color: white;
+  }

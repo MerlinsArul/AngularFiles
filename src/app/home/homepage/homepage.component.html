@@ -1,39 +1,128 @@
 <app-navbar></app-navbar>
+<div class="body">
 <section class="home">
     <img src="../../assets/back.jpg">
-    
-    <div class="homecontent">
-    <h1>Start Learning For  Future bright</h1>
-    <!-- <a routerLink="course" class="btn btn-lg btn-light">Discover Courses</a> &nbsp;
-    <a routerLink="joinnow" class="btn btn-lg btn-primary">Join Now</a> -->
-     </div>
     </section>
-    <br><br>
-    <h3> Our Top Courses.....</h3>
-    <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
-      <div class="carousel-inner">
-        <div class="carousel-item active">
-          <img class="d-block w-100" src="../../assets/bigdata.jpg"  height="400" alt="BigData">
-        </div>
-        <div class="carousel-item">
-          <img class="d-block w-100" src="../../assets/dev.webp"  height="400" alt="DevOps">
-        </div>
-        <div class="carousel-item">
-          <img class="d-block w-100" src="../../assets/aiimg.jpg"  height="400" alt="AI">
-        </div>
-        <div class="carousel-item">
-          <img class="d-block w-100" src="../../assets/cyberimg.jpg"  height="400" alt="Cyber">
-        </div>
+ 
+ 
+ <!-- <div class ="show">
+ <h1>POPULAR COURSES WE OFFER</h1>
+ <div id="courses">
+     <div class="cs">
+         <h3>Big Data</h3>
+         <img src="./../assets/bigdata.jpg" width="50%" alt="cs">
+         <a routerLink="/login" ><button class="apply">Apply Here</button></a>
+     </div>
+     <div class="cyber">
+         <h3>Cyber Security</h3>
+         <img src="./../assets/cyberimg.jpg" alt="business">
+         <a routerLink="/login" ><button class="apply">Apply Here</button></a>
+     </div>
+     <div class="digital">
+         <h3>Digital Marketing</h3>
+         <img src="./../assets/digital.webp" alt="media">
+         <a routerLink="/login" ><button class="apply">Apply Here</button></a>
+     </div>
+     <div class="dev">
+         <h3>DevOps</h3>
+         <img src="./../assets/dev.webp" alt="arts">
+         <a routerLink="/login" ><button class="apply">Apply Here</button></a>
+ </div>
+</div>
+<app-footer></app-footer>
+<div class ="show">
+  <h1>POPULAR COURSES WE OFFER</h1>
+  <div id="courses">
+      <div class="cs">
+          <h3>Big Data</h3>
+          <img src="./../assets/bigdata.jpg" width="50%" alt="cs">
+          <a routerLink="/login" ><button class="apply">Apply Here</button></a>
       </div>
-      <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
-        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-        <span class="sr-only">Previous</span>
-      </a>
-      <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
-        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-        <span class="sr-only">Next</span>
-      </a>
+      <div class="cyber">
+          <h3>Cyber Security</h3>
+          <img src="./../assets/cyberimg.jpg" alt="business">
+          <a routerLink="/login" ><button class="apply">Apply Here</button></a>
+      </div>
+      <div class="digital">
+          <h3>Digital Marketing</h3>
+          <img src="./../assets/digital.webp" alt="media">
+          <a routerLink="/login" ><button class="apply">Apply Here</button></a>
+      </div>
+      <div class="dev">
+          <h3>DevOps</h3>
+          <img src="./../assets/dev.webp" alt="arts">
+          <a routerLink="/login" ><button class="apply">Apply Here</button></a>
+  </div>
+ </div> -->
+  <div class="container">
+<div class="clearfix">
+
+<div class="col-sm-100">
+<div id="thumbcarousel" class="carousel slide" data-interval="false">
+<div class="carousel-inner">
+<div class="item active">
+<div data-target="#carousel" data-slide-to="0" class="thumb"><img src="./../assets/digital.webp"></div>
+<div data-target="#carousel" data-slide-to="1" class="thumb"><img src="./../assets/aiimg.jpg"></div>
+<div data-target="#carousel" data-slide-to="2" class="thumb"><img src="./../assets/bigdata.jpg"></div>
+<div data-target="#carousel" data-slide-to="3" class="thumb"><img src="./../assets/dev.webp"></div>
+</div>
+<div class="item">
+    <div data-target="#carousel" data-slide-to="4" class="thumb"><img src="./../assets/dev.webp"></div>
+    <div data-target="#carousel" data-slide-to="5" class="thumb"><img src="./../assets/bigdata.jpg"></div>
+    <div data-target="#carousel" data-slide-to="6" class="thumb"><img src="./../assets/aiimg.jpg"></div>
+    <div data-target="#carousel" data-slide-to="7" class="thumb"><img src="./../assets/digital.webp"></div>
+    </div><!-- /item -->
+    </div><!-- /carousel-inner -->
+    <a class="left carousel-control" href="#thumbcarousel" role="button" data-slide="prev">
+    <span class="glyphicon glyphicon-chevron-left"></span>
+    </a>
+    <a class="right carousel-control" href="#thumbcarousel" role="button" data-slide="next">
+    <span class="glyphicon glyphicon-chevron-right"></span>
+    </a>
+    </div> <!-- /thumbcarousel -->
+    </div><!-- /clearfix -->
     </div>
+    <!-- /col-sm-6 -->
+    <div class="row">
+    <div class="col-sm-5">
+    <div id="carousel" class="carousel slide" data-ride="carousel">
+    <div class="carousel-inner">
+    <div class="item active">
+    <img src="./../assets/digital.webp">
+    </div>
+    <div class="item">
+    <img src="./../assets/bigdata.jpg">
+    </div>
+    <div class="item">
+    <img src="./../assets/aiimg.jpg">
+    </div>
+    <div class="item">
+    <img src="./../assets/angular.png">
+    </div>
+    <div class="item">
+    <img src="./../assets/cyberimg.jpg">
+    </div>
+    <div class="item">
+    <img src="./../assets/dev.webp">
+    </div>
+    </div>
+    </div> 
+    </div>
+    <div class="col-sm-6">
+    <br><br><br>
+    <h1 >Employee and Team Training Solutions</h1>
+    <p class="font">Curriculum tailored to your organization, delivered with white-glove service and support <p><br>
+        <div class="btn-box">
+            <a class="theme-btn btn-style-one">Request a Free Demo</a>
+        </div>
+   </div>
+</div>
+    </div> 
+    <div>
+   <app-footer></app-footer>
+      </div>
+   
   
-
-
+    
+    
+ 

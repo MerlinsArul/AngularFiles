@@ -1,1 +1,77 @@
+<app-sidenav></app-sidenav>
+<nav class="navbar navbar-light bg coln mynav ">
+ <div class="col-md-9">
+  <h1>Course Info</h1>
+</div>
+  <div class="d-flex">
+    <button type="button" data-toggle="modal" data-target="#exampleModal" class="btn btn-light">Add Course</button>
+  </div>
+  <button class="btnborder">
+    <i style="font-size:30px;" routerLink="/adminpage" class="fas fa-home"></i>
+</button>
+</nav>
 
+<div class="home-section">
+<table class="table mt-3">
+  <thead>
+    <tr>
+      <th scope="col">Id</th>
+      <th scope="col">Coursename</th>
+      <th scope="col">Fees</th>
+      <th scope="col"></th>
+
+
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let item of courseData">
+      <td>{{item.id}}</td>
+      <td>{{item.title}}</td>
+      <td>{{item.price}}</td>
+
+      <td>
+        <button type="button" data-toggle="modal" data-target="#exampleModal" class="btn btn-secondary"
+          (click)="onEdit(item)">Edit</button>
+      </td>
+      <td><button class="btn btn-danger mx-3" (click)="deleteCourse(item)">Delete</button>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+  aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Course detail</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form [formGroup]="courseForm">
+          <div class="form-group">
+            <label for="exampleInputEmail1">Course name</label>
+            <input type="text" formControlName="Coursename" class="form-control" id="exampleInputEmail1"
+              placeholder="Coursename">
+          </div>
+          <div class="form-group">
+            <label for="exampleInputEmail1">Description</label>
+            <input type="text" formControlName="Description" class="form-control" id="exampleInputEmail1"
+              placeholder="Description">
+          </div>
+          <div class="form-group">
+            <label for="exampleInputEmail1">Fees</label>
+            <input type="text" formControlName="Fees" class="form-control" id="exampleInputEmail1" placeholder="Fees">
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" id="cancel" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" (click)="postCoursedetails()" class="btn btn-primary">Add</button>
+        <button type="button" (click)="UpdateCoursedetails()" class="btn btn-primary">Update</button>
+      </div>
+    </div>
+  </div>
+</div>
+</div>

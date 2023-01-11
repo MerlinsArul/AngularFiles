@@ -1,16 +1,24 @@
-
+<!-- <br>
+<div class="design">
 <header>
-    <div class="navbar navbar-dark bg-light shadow-sm">
-        <div class="navbar-brand align-item-center d-flex">
-            <i style="font-size:22px;color:black;margin-left:62px;margin-top:8px;" class="fas fa-cloud"></i>
-            <strong style="color:black;font-size:25px;">Online Courses</strong>
-        </div>
-        <button class="btn btn-light">
-            <i style="font-size:30px;" routerLink="/home"   class="fas fa-home"></i>
-        </button>
-        <button class="btn btn-light">
-            <i style="font-size:30px;" routerLink="/enroll" class="fas fa-cart-plus"> </i>
-            <div style="font-size:10px;" class="badge bg-light">{{totalitem}}</div>
-        </button>
+    <img src="../../assets/logo.png">
+    <div class="col-md-9 col">
+        <i style="font-size:22px;color:rgb(7, 7, 12);margin-left:80px;margin-top:8px;" class="fas fa-cloud"></i>
+        <strong style="color:rgb(7, 7, 12);font-size:25px;">Online Courses</strong>
     </div>
-</header>
+    <button class="col-md-1 btnborder">
+        <i style="font-size:30px;" routerLink="/homepage" class="fas fa-home"></i>
+    </button>
+    <button class="col-md-2 btnborder">
+        <i style="font-size:30px;" routerLink="/enroll" class="fas fa-cart-plus"> </i>
+        <div style="font-size:10px;" class="badge bg-light">{{totalitem}}</div>
+    </button>
+</header> -->
+<header>
+    <img src="../../assets/image/logo.jpg" alt="Logo esa">
+    <nav>
+      <button>  <i style="font-size:30px;" routerLink="/homepage" class="fas fa-home"></i></button>
+      <button> <i style="font-size:30px;" routerLink="/enroll" class="fas fa-cart-plus"></i>
+        <div style="font-size:10px;" class="badge bg-dark">{{totalitem}}</div></button>
+    </nav>
+  </header>

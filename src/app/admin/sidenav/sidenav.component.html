@@ -1,18 +1,26 @@
-<mat-nav-list>
-    <div class="logo py-4">
-      <img src="./assets/logo.svg" alt="Company Logo" />
+<div class="sidebar">
+    <div class="logo-details">
+      <i class='bx bxl-c-plus-plus'></i>
+      <span class="logo_name">Online Courses</span>
     </div>
-    <mat-divider></mat-divider>
-    <h2 matSubheader class="mt-2">APPLICATIONS</h2>
-  
-    <a mat-list-item routerLinkActive="list-item-active" routerLink="/adminpage">
-      <mat-icon>home</mat-icon> Home
-    </a>
-    <a mat-list-item routerLinkActive="list-item-active" routerLink="/dashboard">
-      <mat-icon>dashboard</mat-icon> Dashboard
-    </a>
-    <a mat-list-item routerLinkActive="list-item-active" routerLink="/courseinfo"> <mat-icon>Course</mat-icon>CourseInfo </a>
-    <a mat-list-item routerLinkActive="list-item-active" routerLink="/userinfo"> <mat-icon>User</mat-icon> UserInfo</a>
-    <a mat-list-item> <mat-icon>edit</mat-icon> Link 5 </a>
-    <a mat-list-item> <mat-icon>edit</mat-icon> Link 6 </a>
-  </mat-nav-list>
+      <ul class="nav-links">
+        <li>
+          <a routerLink="/adminpage" class="active">
+            <i class='bx bx-grid-alt' ></i>
+            <span class="links_name">Dashboard</span>
+          </a>
+        </li>
+        <li>
+          <a href="/courseinfo">
+            <i class='bx bx-box' ></i>
+            <span class="links_name">CourseInfo</span>
+          </a>
+        </li>
+        <li>
+          <a href="/userinfo">
+            <i class='bx bx-list-ul' ></i>
+            <span class="links_name">UserInfo</span>
+          </a>
+        </li>
+      </ul>
+  </div>

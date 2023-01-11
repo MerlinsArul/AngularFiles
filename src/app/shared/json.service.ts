@@ -11,15 +11,6 @@ export class JsonService {
   constructor(private http: HttpClient) { }
   protected url = "http://localhost:3000";
 
-  // getCourses():Observable<any>{
-  //   return this
-  //   .http
-  //   .get(`${this.url}/courses`)
-  //   .pipe(
-  //     map(res=>res)
-  //   )
-  // }
-
   postUser(data: any) {
     return this.http.post<any>("http://localhost:3000/posts/", data)
       .pipe(map((res: any) => {

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { EnrollService } from '../enroll.service';
+import { EnrollService } from './enroll.service';
 
 @Component({
   selector: 'app-enroll',
@@ -7,12 +7,13 @@ import { EnrollService } from '../enroll.service';
   styleUrls: ['./enroll.component.css']
 })
 export class EnrollComponent implements OnInit {
-public courses!:any[];
+public courses!:any
 public grandtotal:number = 0;
   constructor(private enrollservice:EnrollService) { }
 
   ngOnInit(): void {
     this.enrollservice.getcourse().subscribe(res=>{
+      console.log('ress', res);
       this.courses = res;
       this.grandtotal = this.enrollservice.gettotalprice();
       })

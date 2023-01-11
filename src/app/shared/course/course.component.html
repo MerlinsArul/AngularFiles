@@ -1,5 +1,21 @@
-<header>
-    <div>
-        <i class="fa-solid fa-file-certificate"></i>
+<div>
+<app-header></app-header>
+</div>
+<div class="body">
+<div class="container">
+    <!-- <img src ="../../assets/bigdata.jpg"> -->
+    <div class="row">
+<ng-container *ngFor="let item of courselist"> 
+        <div class="card col-md-3">
+            <img src="{{item.image}}"  alt="...">
+            <h3 style="white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:100ch;font-family: 'Times New Roman', Times, serif;">{{item.title}}</h3>
+            <p style="white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:100ch;">{{item.description}}</p>
+            <p><strong>Amount:</strong>Rs.{{item.price}}/-</p>
+            <button class="btn"(click)="addtoenroll(item)">Enroll</button>
+
+        </div>
+    </ng-container>
     </div>
-</header>
+</div>
+</div>
+<app-footer></app-footer>
