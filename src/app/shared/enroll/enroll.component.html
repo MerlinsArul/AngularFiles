@@ -1,3 +1,4 @@
+<app-header></app-header>
 <ng-container *ngIf="courses.length!=0">
     <div class="containeer">
         <div class="card-table">
@@ -8,7 +9,6 @@
                             <th>SL.No</th>
                             <th>Course Name</th>
                             <th>Course Image</th>
-                            <th>Description</th>
                             <th>Price</th>
                             <th>Delete</th>
                             <th>Total</th>
@@ -19,7 +19,6 @@
                             <td>{{i+1}}</td>
                             <td>{{item.title}}</td>
                             <td><img style="width:120px;" src="{{item.image}}"> </td>
-                            <td>{{item.description}}</td>
                             <td>{{item.price}}</td>
                             <td><button class="btn btn-danger" (click)="delete(item)"><i class="fas fa-trash"></i>
                                 </button></td>
@@ -28,8 +27,7 @@
                         <tr>
                         </tr>
                     </tbody>
-                    <td><button routerLink="/course" class="btn btn-success">Enroll more </button> </td>
-                    <td><button class="btn btn-warning">Checkout </button> </td>
+                    <td colspan="5"><button class="btn btn-warning">Checkout </button> </td>
                     <td><strong>Grand Total:{{grandtotal| currency:'INR':'symbol':'3.0'}}</strong></td>
                 </table>
             </div>

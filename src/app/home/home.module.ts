@@ -4,9 +4,9 @@ import { HomeRoutingModule } from './home-routing.module';
 import { HomepageComponent } from './homepage/homepage.component';
 import { LoginComponent } from './login/login.component';
 import { SignupComponent } from './signup/signup.component';
-import { SharedModule } from '../shared/shared.module';
 import { ReactiveFormsModule } from '@angular/forms';
 import { AboutusComponent } from './aboutus/aboutus.component';
+import { SharedModule } from '../shared/shared.module';
 
 
 
@@ -25,8 +25,8 @@ import { AboutusComponent } from './aboutus/aboutus.component';
   imports: [
     CommonModule,
     HomeRoutingModule,
-    SharedModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    SharedModule
   ],
 
 })

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CourseService } from './course.service';
 import { EnrollService } from '../enroll/enroll.service';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-course',
@@ -10,7 +11,7 @@ import { EnrollService } from '../enroll/enroll.service';
 export class CourseComponent implements OnInit {
   courselist: any;
  
- constructor(private courseservice:CourseService,private enrollservice:EnrollService) { }
+ constructor(private courseservice:CourseService,private enrollservice:EnrollService,private toastr:ToastrService) { }
 
   ngOnInit(): void {
     this.courseservice.getcourse().subscribe(res => {
@@ -22,7 +23,7 @@ export class CourseComponent implements OnInit {
     });
   }
   addtoenroll(item: any) {
-    alert('You have enrolled')
+    this.toastr.success('You have Enrolled Successfully','title')
     this.enrollservice.addtoenroll(item);
     console.log(item)
   }

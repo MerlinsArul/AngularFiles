@@ -14,7 +14,7 @@
 .body{
   min-height: 100vh;
   width:auto;
-  background-image: url("../../../assets/lod.jpg");
+  background-image: url("../../../assets/image/lod.jpg");
   background-size: cover;
   display: flex;
   align-items: center;
@@ -24,6 +24,12 @@ label{
   font-size: medium;
   font-family: 'Times New Roman', Times, serif;
   font-weight: lighter;
+  display: block;
+  margin-bottom: 10px;
+}
+input{
+  display: block;
+  margin-bottom: 10px;
 }
 .card-header{
   font-family: 'Times New Roman', Times, serif;

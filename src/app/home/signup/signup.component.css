@@ -1,3 +1,12 @@
+.body{
+  min-height: 100vh;
+  width: auto;
+  background-image: url("../../../assets/image/lod.jpg");
+  background-size: cover;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 .card{
   width:450px;
   height: 637px;
@@ -10,15 +19,8 @@
   transform: translate(-50%,-50%);
   color:#3e2093; 
   background: whitesmoke;
-}
-.body{
-  min-height: 100vh;
-  width: auto;
-  background-image: url("../../../assets/lod.jpg");
-  background-size: cover;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  padding-inline: 10px;
+  
 }
 .body img{
   width:100
@@ -27,7 +29,16 @@ label{
   font-size: medium;
   font-family: 'Times New Roman', Times, serif;
   font-weight: lighter;
+  text-indent: 0ch;
+  display: block;
+  margin-bottom: 10px;
+
 }
+input{
+  display: block;
+  margin-bottom: 10px;
+}
+
 .card-header{
   font-family: 'Times New Roman', Times, serif;
   font-size: large;

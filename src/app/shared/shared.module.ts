@@ -14,6 +14,7 @@ import { CyberComponent } from './study/cyber/cyber.component';
 import { DigitalComponent } from './study/digital/digital.component';
 import { AiComponent } from './study/ai/ai.component';
 import { AngularComponent } from './study/angular/angular.component';
+import { UserService } from './services/user.service';
 //import{NgToastModel} from 'ng-angular-popup'
 
 
@@ -35,11 +36,10 @@ import { AngularComponent } from './study/angular/angular.component';
   imports: [
     CommonModule,
     SharedRoutingModule,
-    //NgToastModule
-  ],
+   ],
  exports:[
   NavbarComponent,
-  FooterComponent
+  FooterComponent,
 ]
 })
 export class SharedModule { }

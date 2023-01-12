@@ -1,6 +1,6 @@
 
    <nav class="navbar navbar-expand-lg navbar-light menu-nav" >
- <a routerLink=""><img src="../../../assets/image/logo.jpg"></a> 
+ <a routerLink=""><img src="../../../assets/image/logo.jpeg"></a> 
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
     </button>
@@ -11,7 +11,7 @@
           <a class="nav-link" routerLink="/adminpage">Adminpage</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" routerLink="/login">Course</a>
+          <a class="nav-link" routerLink="/course">Course</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" routerLink="/aboutus">About Us</a>
@@ -22,11 +22,14 @@
         <li class="nav-item">
           <a class="nav-link" routerLink="/contact">Contact</a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" routerLink="/login">Login</a>
+        <li  *ngIf="!user.getName()"  class="nav-item">
+          <a  class="nav-link" routerLink="/login">Login</a>
         </li>
-        <li class="nav-item">
+        <li *ngIf="!user.getName()" class="nav-item">
           <a class="nav-link" routerLink="/signup">SignUp</a>
+        </li>
+        <li  *ngIf="user.getName()" class="nav-item">
+          <a class="nav-link" [routerLink]="" (click)="user.logout()">LogOut</a>
         </li>
       </ul>
     </div>

@@ -60,7 +60,7 @@
     {
       "description": "DevOps (a portmanteau of “development” and “operations”) is the combination of practices and tools designed to increase an organization's ability to deliver applications and services faster than traditional software development processes.",
       "id": "2",
-      "image": "../../assets/dev.webp",
+      "image": "../../assets/image/dev.webp",
       "price": 3000,
       "title": "DevOps"
     },

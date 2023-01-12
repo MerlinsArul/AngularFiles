@@ -1,27 +1,20 @@
 <app-navbar></app-navbar>
 <div class="body">
-  <div class="container">
-    <div class="card">
-      <div class="text-center">
-        <h4 class="card-header">LoginForm Form</h4>
-      </div>
-      <form [formGroup]="loginform">
-        <div class="mb-3">
-          <label for="exampleInputEmail1" class="form-label">Email address</label>
-          <input type="email" [(ngModel)]="loginarray.EmailId" formControlName="EmailId" class="form-control"
-            placeholder="enter email id" id="exampleInputEmail1" aria-describedby="emailHelp">
-          <small *ngIf="loginform.get('EmailId')?.invalid && loginform.get('EmailId')?.touched"
-            class="text-danger">Email is required</small>
-        </div><br>
-        <div class="mb-3">
-          <label for="exampleInputPassword1" class="form-label">Password</label>
-          <input type="password" [(ngModel)]="loginarray.password" formControlName="password" class="form-control"
-            placeholder="enter password" id="exampleInputPassword1">
-          <small *ngIf="loginform.get('password')?.invalid && loginform.get('password')?.touched"
-            class="text-danger">password is Required</small>
-        </div><br>
-        <button type="submit" [disabled]="loginform.invalid" class="btn btn-primary" (click)="login()">Login</button>
-      </form>
-      <a style="color:blue;margin-top:10px;" routerLink="/signup">New user? Click to signup</a>
-    </div>
+  <div class="card">
+    <h4 class="card-header">Login</h4>
+    <form [formGroup]="loginform">
+      <label for="exampleInputEmail1" class="form-label">Email address</label>
+      <input type="email" [(ngModel)]="loginarray.EmailId" formControlName="EmailId" class="form-control"
+        placeholder="enter email id">
+      <small *ngIf="loginform.get('EmailId')?.invalid && loginform.get('EmailId')?.touched" class="text-danger">Email is
+        required</small>
+      <label for="exampleInputPassword1" class="form-label">Password</label>
+      <input type="password" [(ngModel)]="loginarray.password" formControlName="password" class="form-control"
+        placeholder="enter password">
+      <small *ngIf="loginform.get('password')?.invalid && loginform.get('password')?.touched"
+        class="text-danger">password is Required</small><br>
+      <button type="submit" [disabled]="loginform.invalid" class="btn btn-primary" (click)="login()">Login</button>
+    </form>
+    <a style="color:blue;margin-top:10px;" routerLink="/signup">New user? Click to signup</a>
   </div>
+</div>

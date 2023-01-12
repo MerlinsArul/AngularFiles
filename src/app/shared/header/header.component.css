@@ -24,8 +24,9 @@ button{
   /*^Normalizado^*/
   
   header{
-    height: 90px;
-    background-image: url("../../../assets/image/haed.jpg");
+    height: 80px;
+    background: rgb(8,171,213);
+    background: linear-gradient(90deg, rgba(8,171,213,1) 21%, rgba(230,0,255,0.8074580173866421) 82%);
     background-repeat: no-repeat;
     background-attachment: fixed;  
     background-size: cover;
@@ -36,7 +37,7 @@ button{
     
   }
   header img{
-    height: 90px;
+    height: 80px;
     grid-column-start: 1;
     grid-column-end: 3;
     border-color: darkblue;
@@ -50,11 +51,11 @@ button{
     /*background-color: darkblue;*/
     padding: 10px;
   }
-  header nav button{
+  div{
     grid-row-start: 2;
     grid-row-end: 3;
     color: black;
     font-size: 1.7em;
-    background-color: white;
-    border-radius: 20px;
+    margin-left: 0px;
+   
   }
