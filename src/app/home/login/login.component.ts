@@ -12,8 +12,8 @@ import { environment } from 'src/environments/environment';
 })
 
 export class LoginComponent implements OnInit {
-  loginform: any = FormGroup;
-  loginarray: any = {}
+  public loginform: any = FormGroup;
+  public loginarray: any = {}
   constructor(private router: Router, private http: HttpClient, private toastr: ToastrService) { }
   ngOnInit(): void {
     this.loginform = new FormGroup({

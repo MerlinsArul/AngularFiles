@@ -2,29 +2,29 @@
 <div id="checkOut">
   <h1>Checkout</h1>
   <h4>User Details</h4>
-  <form [formGroup]="checkoutform">
+  <form [formGroup]="checkoutForm">
     <div class="form-group">
       <label for="cardName">Email Address</label>
       <input type="email" class="form-control" formControlName="EmailId" placeholder="Enter EmailId">
-      <small *ngIf="checkoutform.get('EmailId')?.invalid && checkoutform.get('password')?.touched"
+      <small *ngIf="checkoutForm.get('EmailId')?.invalid && checkoutForm.get('password')?.touched"
         class="text-danger">Email is Required</small><br>
     </div>
     <div class="form-group">
       <label for="cardName">Password</label>
       <input type="password" class="form-control" formControlName="password" placeholder="Enter Password">
-      <small *ngIf="checkoutform.get('password')?.invalid && checkoutform.get('password')?.touched"
+      <small *ngIf="checkoutForm.get('password')?.invalid && checkoutForm.get('password')?.touched"
         class="text-danger">password is Required</small><br>
     </div>
     <div class="form-group">
       <label for="PhoneNumber">PhoneNumber</label>
       <input type="text" class="form-control" formControlName="phonenumber" placeholder="1234567890">
-      <small *ngIf="checkoutform.get('phonenumber')?.invalid && checkoutform.get('phonenumber')?.touched"
+      <small *ngIf="checkoutForm.get('phonenumber')?.invalid && checkoutForm.get('phonenumber')?.touched"
         class="text-danger">PhoneNumber is Required</small><br>
     </div>
     <div class="form-group">
       <label for="Fees">Fees</label>
       <input type="text" class="form-control" formControlName="fees" value="Free">
     </div>
-    <button type="submit" [disabled]="checkoutform.invalid" class="btn btn-primary" (click)="explore()">Submit</button>
+    <button type="submit" [disabled]="checkoutForm.invalid" class="btn btn-primary" (click)="explore()">Submit</button>
     <button type="button" id="cancel" class="btn btn-secondary" (click)="close()">Close</button>
   </form>

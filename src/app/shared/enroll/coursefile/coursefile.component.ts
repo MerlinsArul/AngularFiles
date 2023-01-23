@@ -8,24 +8,21 @@ import { EnrollService } from '../enroll.service';
 })
 export class CoursefileComponent {
   public courses: any;
-  constructor(private enrollservice:EnrollService) { }
-  
+  constructor(private enrollservice: EnrollService) { }
   ngOnInit(): void {
-  this.getCourse();
+    this.getCourse();
   }
   getCourse() {
-  this.enrollservice.getCourse().subscribe((res: any) => {
-  this.courses = res;
-  
-  })
+    this.enrollservice.getCourse().subscribe((res: any) => {
+      this.courses = res;
+    })
   }
   getAllCourse() {
-  this.enrollservice.getCourse()
-  .subscribe((res: any) => {
-  this.courses = res;
-  console.log(res);
-  
-  })
+    this.enrollservice.getCourse()
+      .subscribe((res: any) => {
+        this.courses = res;
+        console.log(res);
+      })
   }
-  
+
 }

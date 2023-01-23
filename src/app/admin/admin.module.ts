@@ -7,9 +7,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { SidenavComponent } from './sidenav/sidenav.component';
 import { AdminComponent } from './admin.component';
 import { RoleComponent } from './role/role.component';
-import { TableComponent } from '../shared/table/table.component';
 import { SharedModule } from '../shared/shared.module';
-
 
 @NgModule({
     declarations: [
@@ -18,15 +16,12 @@ import { SharedModule } from '../shared/shared.module';
         SidenavComponent,
         AdminComponent,
         RoleComponent,
-        
     ],
-   
     imports: [
         CommonModule,
         AdminRoutingModule,
         ReactiveFormsModule,
         SharedModule
-      
     ]
 })
 export class AdminModule { }

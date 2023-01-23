@@ -8,9 +8,9 @@ describe('JavaComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ JavaComponent ]
+      declarations: [JavaComponent]
     })
-    .compileComponents();
+      .compileComponents();
 
     fixture = TestBed.createComponent(JavaComponent);
     component = fixture.componentInstance;

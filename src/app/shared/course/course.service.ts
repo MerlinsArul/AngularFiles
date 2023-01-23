@@ -8,17 +8,16 @@ import { environment } from 'src/environments/environment';
 })
 export class CourseService {
   constructor(private http: HttpClient) { }
-  
   postCourse(data: {}) {
     return this.http.post<any>(environment.baseUrl + "/courses/", data)
       .pipe(map((res: any) => {
         console.log(data);
-        
+
         return res;
-        
+
       }))
   }
-  getcourse(data: {}) {
+  getCourse(data: {}) {
     return this.http.get(environment.baseUrl + "/courses/", data)
       .pipe(map((res: any) => {
         return res;

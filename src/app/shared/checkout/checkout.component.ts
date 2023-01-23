@@ -8,15 +8,13 @@ import { Router } from '@angular/router';
   styleUrls: ['./checkout.component.css']
 })
 export class CheckoutComponent implements OnInit {
-  checkoutform: any = FormGroup;
+  public checkoutForm: any = FormGroup;
   constructor(private router: Router) { }
-
   ngOnInit(): void {
-    this.checkoutform = new FormGroup({
+    this.checkoutForm = new FormGroup({
       EmailId: new FormControl('', Validators.email),
       password: new FormControl('', Validators.required),
       phonenumber: new FormControl('', Validators.required),
-
     })
   }
   explore() {

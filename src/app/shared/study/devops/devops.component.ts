@@ -1,15 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-devops',
   templateUrl: './devops.component.html',
   styleUrls: ['./devops.component.css']
 })
-export class DevopsComponent implements OnInit {
-
-  constructor() { }
-
-  ngOnInit(): void {
-  }
+export class DevopsComponent {
 
 }

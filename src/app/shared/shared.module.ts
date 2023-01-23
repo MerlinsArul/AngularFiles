@@ -47,7 +47,7 @@ import { CoursefileComponent } from './enroll/coursefile/coursefile.component';
     CommonModule,
     SharedRoutingModule,
     ReactiveFormsModule
-   
+
   ],
   exports: [
     NavbarComponent,

@@ -33,22 +33,6 @@
       "Lastname": "juliet",
       "EmailId": "sherlin@gmail.com",
       "password": "Sherlin@01"
-    },
-    {
-      "Firstname": "kk",
-      "Lastname": "ll",
-      "EmailId": "kk@gmail.com",
-      "password": "Kk@12345",
-      "confirmPassword": "Kk@12345",
-      "acceptTerms": true,
-      "id": 7
-    },
-    {
-      "id": 8,
-      "Firstname": "gjv",
-      "Lastname": "hgcg",
-      "EmailId": "xjfcj@gmail.com",
-      "password": ""
     }
   ],
   "courses": [
@@ -133,15 +117,6 @@
       "image": "../../assets/image/bigdata.jpg",
       "path": "/bigdata",
       "id": 1,
-      "EmailId": "maha@gmail.com"
-    },
-    {
-      "courseid": 2,
-      "description": "DevOps (a portmanteau of “development” and “operations”) is the combination of practices and tools designed to increase an organization's ability to deliver applications and services faster than traditional software development processes.",
-      "image": "../../assets/image/dev.webp",
-      "title": "DevOps",
-      "path": "/devops",
-      "id": 2,
       "EmailId": "maha@gmail.com"
     },
     {
@@ -251,6 +226,33 @@
       "path": "/devops",
       "EmailId": "kk@gmail.com",
       "id": 18
+    },
+    {
+      "courseid": 8,
+      "description": "Cloud computing is the on-demand availability of computer system resources, especially data storage (cloud storage) and computing power, without direct active management by the user.",
+      "image": "../../assets/image/cloud.jpg",
+      "title": "Cloud Computing",
+      "path": "/cloud",
+      "EmailId": "maha@gmail.com",
+      "id": 19
+    },
+    {
+      "courseid": 5,
+      "description": "Angular is a platform and framework for building single-page client applications using HTML and TypeScript. Angular is written in TypeScript.",
+      "image": "../../assets/image/angular.png",
+      "title": "Angular",
+      "path": "/angular",
+      "EmailId": "maha@gmail.com",
+      "id": 20
+    },
+    {
+      "courseid": 2,
+      "description": "DevOps (a portmanteau of “development” and “operations”) is the combination of practices and tools designed to increase an organization's ability to deliver applications and services faster than traditional software development processes.",
+      "image": "../../assets/image/dev.webp",
+      "title": "DevOps",
+      "path": "/devops",
+      "EmailId": "maha@gmail.com",
+      "id": 21
     }
   ]
 }

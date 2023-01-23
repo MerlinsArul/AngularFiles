@@ -10,14 +10,13 @@ import { ToastrService } from 'ngx-toastr';
   styleUrls: ['./userinfo.component.css']
 })
 export class UserinfoComponent implements OnInit {
-  showadd!: boolean;
-  showupdate!: boolean;
-  formValue!: FormGroup
-  usermodObj: UserModel = new UserModel()
-  userData: any;
+  public showAdd!: boolean;
+  public showUpdate!: boolean;
+  public formValue!: FormGroup
+  public usermodObj: UserModel = new UserModel()
+  public userData: any;
   constructor(private formbuilder: FormBuilder, private json: UsersideService, private toastr: ToastrService) { }
-
-  headArray = [
+  public headArray = [
     { 'Head': 'Firstname', 'FieldName': 'Firstname' },
     { 'Head': 'Lastname', 'FieldName': 'Lastname' },
     { 'Head': 'EmailId', 'FieldName': 'EmailId' },
@@ -34,13 +33,12 @@ export class UserinfoComponent implements OnInit {
     this.getAllUser();
   }
   add() {
-    this.showadd = true;
-    this.showupdate = false;
+    this.showAdd = true;
+    this.showUpdate = false;
   }
   getUser() {
     this.json.getUser(this.userData).subscribe((res => {
       this.userData = res;
-      console.log(res);
     }))
   }
   getAllUser() {
@@ -54,7 +52,6 @@ export class UserinfoComponent implements OnInit {
     this.usermodObj.Lastname = this.formValue.value.Lastname;
     this.usermodObj.EmailId = this.formValue.value.EmailId;
     this.json.postUser(this.usermodObj).subscribe(res => {
-      console.log(res);
       this.formValue.reset();
       this.getAllUser();
       this.toastr.success("User Added Successfully")
@@ -65,8 +62,8 @@ export class UserinfoComponent implements OnInit {
       })
   }
   onEdit(d: any) {
-    this.showadd = false
-    this.showupdate = true;
+    this.showAdd = false
+    this.showUpdate = true;
     this.usermodObj.id = d.id
     this.formValue.controls['Firstname'].setValue(d.Firstname);
     this.formValue.controls['Lastname'].setValue(d.Lastname);
@@ -79,7 +76,6 @@ export class UserinfoComponent implements OnInit {
     this.usermodObj.EmailId = this.formValue.value.EmailId;
     this.usermodObj.password = this.formValue.value.Password;
     this.json.updateUser(this.usermodObj, this.usermodObj.id).subscribe(res => {
-      console.log(res);
       this.formValue.reset();
       this.getAllUser();
       this.toastr.success("User Detail Updated Successfully")
@@ -88,8 +84,8 @@ export class UserinfoComponent implements OnInit {
         alert("something went wrong")
       })
   }
-  deleteUser(data: any) {
-    this.json.deleteUser(data.id)
+  deleteUser(data: UserModel) {
+    this.json.deleteUser(data['id'])
       .subscribe(res => {
         this.toastr.warning("User Deleted successfully")
         this.getAllUser();

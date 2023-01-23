@@ -1,10 +1,5 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { CourseinfoComponent } from '../admin/courseinfo/courseinfo.component';
-import { UserinfoComponent } from '../admin/userinfo/userinfo.component';
-import { LoginComponent } from '../home/login/login.component';
-import { SignupComponent } from '../home/signup/signup.component';
-import { ContactComponent } from '../home/contact/contact.component';
 import { CourseComponent } from './course/course.component';
 import { EnrollComponent } from './enroll/enroll.component';
 import { BigdataComponent } from './study/bigdata/bigdata.component';
@@ -31,15 +26,15 @@ const routes: Routes = [
   { path: 'cloud', component: CloudComponent },
   { path: 'ai', component: AiComponent },
   { path: 'angular', component: AngularComponent },
-  {path:'checkout',component:CheckoutComponent},
-  {path:'coursefile',component:CoursefileComponent,
-  canActivate: [AuthGuard]},
+  { path: 'checkout', component: CheckoutComponent },
+  {
+    path: 'coursefile', component: CoursefileComponent,
+    canActivate: [AuthGuard]
+  },
   {
     path: 'enroll', component: EnrollComponent,
     canActivate: [AuthGuard]
   },
- 
-
 ];
 
 @NgModule({

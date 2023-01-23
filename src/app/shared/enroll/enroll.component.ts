@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { ToastrService } from 'ngx-toastr';
+import { CourseList } from '../Model/Course';
 import { EnrollService } from './enroll.service';
 
 @Component({
@@ -31,7 +32,7 @@ export class EnrollComponent {
         console.log(res);
       })
   }
-  delete(data: any) {
+  delete(data:CourseList) {
     this.toastr.warning('Deleted from Enrollment')
     this.enrollservice.deleteEnroll(data.id)
       .subscribe(res => {

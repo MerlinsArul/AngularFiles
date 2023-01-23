@@ -8,9 +8,9 @@ describe('DigitalComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ DigitalComponent ]
+      declarations: [DigitalComponent]
     })
-    .compileComponents();
+      .compileComponents();
 
     fixture = TestBed.createComponent(DigitalComponent);
     component = fixture.componentInstance;

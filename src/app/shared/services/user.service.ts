@@ -6,7 +6,7 @@ import { Router } from '@angular/router';
 })
 export class UserService {
   authenticate!: boolean;
-  constructor(private router:Router) { }
+  constructor(private router: Router) { }
 
   isLogin = () => {
     if (this.getName()) {

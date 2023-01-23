@@ -22,7 +22,6 @@ import { SharedModule } from '../shared/shared.module';
     HomeRoutingModule,
     ReactiveFormsModule,
     SharedModule
-    
   ],
 })
 export class HomeModule { }

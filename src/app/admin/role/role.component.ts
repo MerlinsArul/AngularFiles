@@ -6,10 +6,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./role.component.css']
 })
 export class RoleComponent {
-  
- constructor(){
-  console.log("Role component is called");
-  
- }
- 
+
 }

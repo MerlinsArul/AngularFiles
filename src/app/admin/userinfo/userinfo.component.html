@@ -4,7 +4,8 @@
     <h1>User Personal Info</h1>
   </div>
   <div class="d-flex">
-    <button type="button" (click)="add()" data-toggle="modal" data-target="#exampleModal" class="btn btn-light">Add User</button>&nbsp;
+    <button type="button" (click)="add()" data-toggle="modal" data-target="#exampleModal" class="btn btn-light">Add
+      User</button>&nbsp;
     <button type="button" data-toggle="modal" data-target="#exampleModal" class="btn btn-light">Edit User</button>
   </div>
   <button class="btnborder">
@@ -55,8 +56,8 @@
         </div>
         <div class="modal-footer">
           <button type="button" id="cancel" class="btn btn-secondary" data-dismiss="modal">Close</button>
-          <button *ngIf="showadd" type="button" (click)="postUserdetails()" class="btn btn-primary">Add</button>
-          <button *ngIf="showupdate"type="button" (click)="updateUserdetails()" class="btn btn-primary">Update</button>
+          <button *ngIf="showAdd" type="button" (click)="postUserdetails()" class="btn btn-primary">Add</button>
+          <button *ngIf="showUpdate" type="button" (click)="updateUserdetails()" class="btn btn-primary">Update</button>
         </div>
       </div>
     </div>

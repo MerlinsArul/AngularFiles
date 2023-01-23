@@ -10,11 +10,9 @@ import { isNgTemplate } from '@angular/compiler';
   styleUrls: ['./course.component.css']
 })
 export class CourseComponent implements OnInit {
-  courselist: any;
-  enrollist: any;
-  showenroll!: boolean;
-  showenrolled!: boolean;
-  user = localStorage.getItem("EmailId");
+  public courselist: any;
+  public enrollist: any;
+  public user = localStorage.getItem("EmailId");
   constructor(private courseservice: CourseService, private enrollservice: EnrollService, private toastr: ToastrService) { }
   ngOnInit(): void {
     this.check();
@@ -22,7 +20,7 @@ export class CourseComponent implements OnInit {
   check() {
     this.enrollservice.enroll(this.enrollist).subscribe(res => {
       console.log(res);
-      this.courseservice.getcourse(this.courselist).subscribe(res1 => {
+      this.courseservice.getCourse(this.courselist).subscribe(res1 => {
         this.courselist = res1;
         res1.forEach((a: any, i: any) => {
           delete a.id;

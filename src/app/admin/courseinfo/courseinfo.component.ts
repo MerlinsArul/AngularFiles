@@ -3,20 +3,20 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 import { CourseModel } from '../../shared/Model/Course'
 import { CourseService } from 'src/app/shared/course/course.service';
 import { ToastrService } from 'ngx-toastr';
-
+import { CourseList } from '../../shared/Model/Course';
 @Component({
   selector: 'app-courseinfo',
   templateUrl: './courseinfo.component.html',
   styleUrls: ['./courseinfo.component.css']
 })
 export class CourseinfoComponent implements OnInit {
-  showadd!: boolean;
-  showupdate!: boolean;
-  courseForm!: FormGroup
-  coursemodObj: CourseModel = new CourseModel
-  courseData: any;
+  public showAdd!: boolean;
+  public showUpdate!: boolean;
+  public courseForm!: FormGroup
+  public coursemodObj: CourseModel = new CourseModel
+  public courseData: any;
   constructor(private formbuilder: FormBuilder, private courseservice: CourseService, private toastr: ToastrService) { }
-  headArray = [
+  public headArray = [
     { 'Head': 'CourseId', 'FieldName': 'courseid' },
     { 'Head': 'CourseName', 'FieldName': 'title' },
     { 'Head': 'Description', 'FieldName': 'description' },
@@ -29,29 +29,29 @@ export class CourseinfoComponent implements OnInit {
       description: [''],
 
     })
-    this.getcourse();
+    this.getCourse();
     this.getAllCourse();
   }
   add() {
-    this.showadd = true;
-    this.showupdate = false;
+    this.showAdd = true;
+    this.showUpdate = false;
   }
-  getcourse() {
-    this.courseservice.getcourse(this.courseData).subscribe((res: any) => {
+  getCourse() {
+    this.courseservice.getCourse(this.courseData).subscribe((res: any) => {
       this.courseData = res;
       console.log(res);
     })
   }
   getAllCourse() {
-    this.courseservice.getcourse(this.courseData)
+    this.courseservice.getCourse(this.courseData)
       .subscribe(res => {
         this.courseData = res;
         console.log(res);
       })
   }
-  onEdit(data: any) {
-    this.showadd = false;
-    this.showupdate = true;
+  onEdit(data: CourseModel) {
+    this.showAdd = false;
+    this.showUpdate = true;
     this.coursemodObj.id = data.id
     this.courseForm.controls['courseid'].setValue(data.courseid);
     this.courseForm.controls['title'].setValue(data.title);
@@ -84,7 +84,7 @@ export class CourseinfoComponent implements OnInit {
         alert("something went wrong")
       })
   }
-  deleteCourse(item: any) {
+  deleteCourse(item: CourseList) {
     this.courseservice.deleteCourse(item.id)
       .subscribe(res => {
         this.toastr.warning("Course Deleted");
