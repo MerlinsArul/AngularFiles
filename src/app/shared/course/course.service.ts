@@ -1,40 +1,41 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { map } from 'rxjs';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class CourseService {
-coursedetails:any
-  constructor(private http:HttpClient) { }
-  protected url = "http://localhost:3000";
-
-  getcourse(){
-    return this.http.get("http://localhost:3000/courses/")
-    .pipe(map((res:any)=>{
-      return res;
-    }));
+  constructor(private http: HttpClient) { }
+  
+  postCourse(data: {}) {
+    return this.http.post<any>(environment.baseUrl + "/courses/", data)
+      .pipe(map((res: any) => {
+        console.log(data);
+        
+        return res;
+        
+      }))
   }
-
-  postCourse(data:any){
-   return this.http.post<any>("http://localhost:3000/courses/",data)
-   .pipe(map((res:any)=>{
-    return res;
-   }))
+  getcourse(data: {}) {
+    return this.http.get(environment.baseUrl + "/courses/", data)
+      .pipe(map((res: any) => {
+        return res;
+      }));
   }
-  updateCourse(data:any,id:number){
-    return this.http.put<any>("http://localhost:3000/courses/"+id,data)
-    .pipe(map((res:any)=>{
-     return res;
-    }))
-   }
-   deleteCourse(id:number){
-    return this.http.delete<any>("http://localhost:3000/courses/" +id)
-    .pipe(map((res:any)=>{
-     return res;
-    }))
-   }
+  updateCourse(data: {}, id: number) {
+    return this.http.put<any>(environment.baseUrl + "/courses/" + id, data)
+      .pipe(map((res: any) => {
+        return res;
+      }))
+  }
+  deleteCourse(id: number) {
+    return this.http.delete<any>(environment.baseUrl + "/courses/" + id)
+      .pipe(map((res: any) => {
+        return res;
+      }))
+  }
 }
 
 

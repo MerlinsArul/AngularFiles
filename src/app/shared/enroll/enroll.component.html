@@ -1,43 +1,36 @@
 <app-header></app-header>
-<ng-container *ngIf="courses.length!=0">
-    <div class="containeer">
-        <div class="card-table">
-            <div class="card-product">
-                <table class="table table-bordered ">
-                    <thead>
-                        <tr>
-                            <th>SL.No</th>
-                            <th>Course Name</th>
-                            <th>Course Image</th>
-                            <th>Price</th>
-                            <th>Delete</th>
-                            <th>Total</th>
-                        </tr>
-                    </thead>
-                    <tbody *ngFor="let item of courses; let i =index">
-                        <tr>
-                            <td>{{i+1}}</td>
-                            <td>{{item.title}}</td>
-                            <td><img style="width:120px;" src="{{item.image}}"> </td>
-                            <td>{{item.price}}</td>
-                            <td><button class="btn btn-danger" (click)="delete(item)"><i class="fas fa-trash"></i>
-                                </button></td>
-                            <td>{{item.price}}</td>
-                        </tr>
-                        <tr>
-                        </tr>
-                    </tbody>
-                    <td colspan="5"><button class="btn btn-warning">Checkout </button> </td>
-                    <td><strong>Grand Total:{{grandtotal| currency:'INR':'symbol':'3.0'}}</strong></td>
-                </table>
+<div class="body">
+    <div class="container">
+        <ng-container *ngFor="let item of courses">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="card">
+                        <div class="card-horizontal">
+                            <div class="img-square-wrapper">
+                                <img class="" src="{{item.image}}" alt="Card image cap">
+                            </div>
+                            <div class="card-body">
+                                <h3 class="card-title">{{item.title}}</h3>
+                                <p class="card-text">{{item.description}}</p>
+                            </div>
+                            <div class="delete">
+                                <button class="btn btn-danger" (click)="delete(item)"><i
+                                        class="fas fa-trash"></i></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
+        </ng-container>
+        <hr>
+        <div>
+            <button routerLink="/course" class="btn btn-success">Enroll more </button> &nbsp;
+            <button routerLink="/checkout" class="btn btn-warning">Checkout </button>
         </div>
-    </div>
-</ng-container>
-<ng-container *ngIf="courses.length==0">
-    <div class="center">
-        <h4>Your course is Empty!!</h4>
-        <h6>Add item to it</h6>
-        <button routerLink="/course" class="btn btn-dark">Enroll now </button>
-    </div>
-</ng-container>
+        <ng-container *ngIf="courses.length==0">
+            <div class="center">
+                <h4>Your course is Empty!!</h4>
+                <h6>Add item to it</h6>
+                <button routerLink="/course" class="btn btn-dark">Enroll now </button>
+            </div>
+        </ng-container>

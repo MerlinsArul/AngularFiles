@@ -1,8 +1,15 @@
 <header>
-    <img src="../../assets/image/logo.jpeg" alt="Logo esa">
-    <nav>
-    <div col-md-2> <i style="font-size:30px;" routerLink="/homepage" class="fas fa-home"></i></div>
-   <div col-md-2> <i style="font-size:30px;" routerLink="/enroll" class="fas fa-cart-plus"></i> 
-    <i style="font-size:10px;" class="badge bg-dark"></i>{{totalitem}}</div>
-    </nav>
-  </header>
+  <img src="../../assets/image/logo.jpeg" alt="Logo esa">
+  <div class="hamburger-menu">
+    <input id="menu__toggle" type="checkbox" />
+    <label class="menu__btn" for="menu__toggle">
+      <span></span>
+    </label>
+    <ul class="menu__box">
+      <li><a class="menu__item" routerLink="/home">Home</a></li>
+      <li><a class="menu__item" routerLink="/enroll">Enroll</a></li>
+      <li><a class="menu__item" routerLink="/coursefile">Course</a></li>
+      <li *ngIf="user.getName()"><a class="menu__item" [routerLink]="" (click)="user.logout()">Logout</a></li>
+    </ul>
+  </div>
+</header>

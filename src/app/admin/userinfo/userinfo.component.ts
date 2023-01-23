@@ -1,19 +1,28 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
-import { JsonService } from 'src/app/shared/json.service';
-import { HttpClient } from '@angular/common/http';
-import { UserModel } from './User'
+import { UsersideService } from 'src/app/shared/services/userside.service';
+import { UserModel } from '../../shared/Model/User';
+import { ToastrService } from 'ngx-toastr';
+
 @Component({
   selector: 'app-userinfo',
   templateUrl: './userinfo.component.html',
   styleUrls: ['./userinfo.component.css']
 })
 export class UserinfoComponent implements OnInit {
+  showadd!: boolean;
+  showupdate!: boolean;
   formValue!: FormGroup
   usermodObj: UserModel = new UserModel()
   userData: any;
-  constructor(private formbuilder: FormBuilder, private json: JsonService, private http: HttpClient) { }
+  constructor(private formbuilder: FormBuilder, private json: UsersideService, private toastr: ToastrService) { }
 
+  headArray = [
+    { 'Head': 'Firstname', 'FieldName': 'Firstname' },
+    { 'Head': 'Lastname', 'FieldName': 'Lastname' },
+    { 'Head': 'EmailId', 'FieldName': 'EmailId' },
+    { 'Head': 'Action', 'FieldName': '' }
+  ];
   ngOnInit(): void {
     this.formValue = this.formbuilder.group({
       Firstname: [''],
@@ -21,30 +30,18 @@ export class UserinfoComponent implements OnInit {
       EmailId: [''],
       Password: ['']
     })
+    this.getUser();
     this.getAllUser();
   }
-
-  postUserdetails() {
-    // const postdata = this.formValue.value;
-    // this.http.post('http://localhost:3000/posts',postdata).subscribe(response=>(console.log(response)
-    // ))
-    this.usermodObj.Firstname = this.formValue.value.Firstname;
-    this.usermodObj.Lastname = this.formValue.value.Lastname;
-    this.usermodObj.EmailId = this.formValue.value.EmailId;
-    this.usermodObj.password = this.formValue.value.Password;
-    this.json.postUser(this.usermodObj).subscribe(res => {
+  add() {
+    this.showadd = true;
+    this.showupdate = false;
+  }
+  getUser() {
+    this.json.getUser(this.userData).subscribe((res => {
+      this.userData = res;
       console.log(res);
-      alert("list added succeesfully")
-      let ref = document.getElementById('cancel')
-      ref?.click()
-      this.formValue.reset();
-      this.getAllUser();
-    },
-      err => {
-        alert("something went wrong")
-
-      })
-
+    }))
   }
   getAllUser() {
     this.json.getUser(this.userData)
@@ -52,32 +49,51 @@ export class UserinfoComponent implements OnInit {
         this.userData = res;
       })
   }
-  deleteUser(data: any) {
-    this.json.deleteUser(data.id)
-      .subscribe(res => {
-        alert("User Deleted");
-        this.getAllUser();
+  postUserdetails() {
+    this.usermodObj.Firstname = this.formValue.value.Firstname;
+    this.usermodObj.Lastname = this.formValue.value.Lastname;
+    this.usermodObj.EmailId = this.formValue.value.EmailId;
+    this.json.postUser(this.usermodObj).subscribe(res => {
+      console.log(res);
+      this.formValue.reset();
+      this.getAllUser();
+      this.toastr.success("User Added Successfully")
+    },
+      (_err: any) => {
+        alert("something went wrong")
+
       })
   }
   onEdit(d: any) {
+    this.showadd = false
+    this.showupdate = true;
     this.usermodObj.id = d.id
     this.formValue.controls['Firstname'].setValue(d.Firstname);
     this.formValue.controls['Lastname'].setValue(d.Lastname);
     this.formValue.controls['EmailId'].setValue(d.EmailId);
     this.formValue.controls['Password'].setValue(d.Password)
   }
-  UpdateUserdetails() {
+  updateUserdetails() {
     this.usermodObj.Firstname = this.formValue.value.Firstname;
     this.usermodObj.Lastname = this.formValue.value.Lastname;
     this.usermodObj.EmailId = this.formValue.value.EmailId;
     this.usermodObj.password = this.formValue.value.Password;
     this.json.updateUser(this.usermodObj, this.usermodObj.id).subscribe(res => {
       console.log(res);
-      alert("updated succeesfully")
-      let ref = document.getElementById('cancel')
-      ref?.click()
       this.formValue.reset();
       this.getAllUser();
-    })
+      this.toastr.success("User Detail Updated Successfully")
+    },
+      (_err: any) => {
+        alert("something went wrong")
+      })
+  }
+  deleteUser(data: any) {
+    this.json.deleteUser(data.id)
+      .subscribe(res => {
+        this.toastr.warning("User Deleted successfully")
+        this.getAllUser();
+      })
   }
 }
+

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { CourseService } from './course.service';
 import { EnrollService } from '../enroll/enroll.service';
 import { ToastrService } from 'ngx-toastr';
+import { isNgTemplate } from '@angular/compiler';
 
 @Component({
   selector: 'app-course',
@@ -10,25 +11,38 @@ import { ToastrService } from 'ngx-toastr';
 })
 export class CourseComponent implements OnInit {
   courselist: any;
- 
- constructor(private courseservice:CourseService,private enrollservice:EnrollService,private toastr:ToastrService) { }
-
+  enrollist: any;
+  showenroll!: boolean;
+  showenrolled!: boolean;
+  user = localStorage.getItem("EmailId");
+  constructor(private courseservice: CourseService, private enrollservice: EnrollService, private toastr: ToastrService) { }
   ngOnInit(): void {
-    this.courseservice.getcourse().subscribe(res => {
-      // console.log(res);
-      this.courselist = res;
-      this.courselist.forEach((a: any) => {
-        Object.assign(a, { quantity: 1, total:a.price })
-      });
-    });
+    this.check();
   }
-  addtoenroll(item: any) {
-    this.toastr.success('You have Enrolled Successfully','title')
-    this.enrollservice.addtoenroll(item);
-    console.log(item)
+  check() {
+    this.enrollservice.enroll(this.enrollist).subscribe(res => {
+      console.log(res);
+      this.courseservice.getcourse(this.courselist).subscribe(res1 => {
+        this.courselist = res1;
+        res1.forEach((a: any, i: any) => {
+          delete a.id;
+          res.forEach((b: any) => {
+            if (a.courseid === b.courseid && this.user === b.EmailId) {
+              this.courselist[i].enrolled = true;
+            }
+          })
+        })
+      })
+    })
   }
+  addtoEnroll(item: any) {
+    this.toastr.success('You have Enrolled Successfully')
+    item.EmailId = this.user;
+    this.enrollservice.addtoEnroll(item).subscribe();
+    this.check();
+  }
+}
 
 
-  }
 
 

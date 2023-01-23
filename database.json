@@ -1,5 +1,5 @@
 {
-  "posts": [
+  "users": [
     {
       "id": 1,
       "Firstname": "Maha",
@@ -10,88 +10,247 @@
     {
       "Firstname": "Sakthi",
       "Lastname": "Vel",
-      "dob": "2001-08-10",
       "EmailId": "sakthi@gmail.com",
       "password": "Sakthi@01",
-      "confirmPassword": "Sakthi@01",
-      "acceptTerms": true,
       "id": 2
     },
     {
       "Firstname": "Vijay",
       "Lastname": "Kumar",
-      "dob": "2001-05-03",
       "EmailId": "vijay@gmail.com",
       "password": "Vijay@01",
-      "confirmPassword": "Vijay@01",
-      "acceptTerms": true,
       "id": 3
-    },
-    {
-      "id": 4,
-      "Firstname": "Sri",
-      "Lastname": "Karthik",
-      "EmailId": "sri@gmail.com",
-      "password": "Karthik@gmail.com"
     },
     {
       "id": 5,
       "Firstname": "Pavithra",
       "Lastname": "Jayavel",
-      "EmailId": "pavi@gmail.com",
-      "password": "Pavi@01"
+      "EmailId": "pavi@gmail.com"
     },
     {
       "id": 6,
-      "Firstname": "Sharmila",
-      "Lastname": "Ramasamy",
-      "EmailId": "sharmila@gmail.com",
-      "password": "Sharmila@01"
+      "Firstname": "sherlin",
+      "Lastname": "juliet",
+      "EmailId": "sherlin@gmail.com",
+      "password": "Sherlin@01"
+    },
+    {
+      "Firstname": "kk",
+      "Lastname": "ll",
+      "EmailId": "kk@gmail.com",
+      "password": "Kk@12345",
+      "confirmPassword": "Kk@12345",
+      "acceptTerms": true,
+      "id": 7
+    },
+    {
+      "id": 8,
+      "Firstname": "gjv",
+      "Lastname": "hgcg",
+      "EmailId": "xjfcj@gmail.com",
+      "password": ""
     }
   ],
   "courses": [
     {
+      "courseid": 1,
+      "title": "Big Data",
       "description": "Big Data is a collection of data that is huge in volume, yet growing exponentially with time. It is a data with so large size and complexity that none of traditional data management tools can store it or process it efficiently. Big data is also a data but with huge size.",
-      "id": "1",
       "image": "../../assets/image/bigdata.jpg",
-      "price": 2000,
-      "title": "Big Data"
+      "path": "/bigdata",
+      "id": 1
     },
     {
+      "courseid": 2,
       "description": "DevOps (a portmanteau of “development” and “operations”) is the combination of practices and tools designed to increase an organization's ability to deliver applications and services faster than traditional software development processes.",
-      "id": "2",
       "image": "../../assets/image/dev.webp",
-      "price": 3000,
-      "title": "DevOps"
+      "title": "DevOps",
+      "path": "/devops",
+      "id": 2
     },
     {
-      "description": "Cyber security is the practice of defending computers, servers, mobile devices, electronic systems, networks, and data from malicious attacks. It's also known as information technology security or electronic information security.",
-      "id": "3",
-      "image": "../../assets/image/cyberimg.jpg",
-      "price": 3000,
-      "title": "CyberSecurity"
+      "courseid": 3,
+      "description": "JavaScript,often abbreviated as JS, is a programming language that is one of the core technologies of the World Wide Web, alongside HTML and CSS.",
+      "image": "../../assets/image/java.jpg",
+      "title": "JavaScript",
+      "path": "/java",
+      "id": 3
     },
     {
+      "courseid": 4,
       "description": "Digital marketing, also called online marketing, is the promotion of brands to connect with potential customers using the internet and other forms of digital communication. ",
-      "id": "4",
       "image": "../../assets/image/digital.webp",
-      "price": 3000,
-      "title": "Digital Marketing"
+      "title": "Digital Marketing",
+      "path": "/digital",
+      "id": 4
     },
     {
+      "courseid": 5,
       "description": "Angular is a platform and framework for building single-page client applications using HTML and TypeScript. Angular is written in TypeScript.",
-      "id": "5",
       "image": "../../assets/image/angular.png",
-      "price": 2500,
-      "title": "Angular"
+      "title": "Angular",
+      "path": "/angular",
+      "id": 5
     },
     {
-      "description": "Artificial intelligence (AI) is the ability of a computer or a robot controlled by a computer to do tasks that are usually done by humans because they require human intelligence and discernment",
-      "id": "6",
+      "courseid": 6,
+      "description": "Artificial intelligence (AI) is the ability of a computer or a robot controlled by a computer to do tasks that are usually done by humans because they require human intelligence and discernment.",
       "image": "../../assets/image/aiimg.jpg",
-      "price": 2500,
-      "title": "AI"
+      "title": "AI",
+      "path": "/ai",
+      "id": 6
+    },
+    {
+      "courseid": 7,
+      "description": "React is used for building interactive user interfaces and web applications quickly and efficiently with significantly less code than you would with vanilla JavaScript.",
+      "image": "../../assets/image/react.avif",
+      "title": "React",
+      "path": "/react",
+      "id": 7
+    },
+    {
+      "courseid": 8,
+      "description": "Cloud computing is the on-demand availability of computer system resources, especially data storage (cloud storage) and computing power, without direct active management by the user.",
+      "image": "../../assets/image/cloud.jpg",
+      "title": "Cloud Computing",
+      "path": "/cloud",
+      "id": 8
+    },
+    {
+      "courseid": "9",
+      "title": "CyberSecurity",
+      "description": "Cyber security is the practice of defending computers, servers, mobile devices, electronic systems, networks, and data from malicious attacks. It's also known as information technology security or electronic information security.",
+      "image": "../../assets/image/cyberimg.jpg",
+      "path": "/cyber",
+      "id": 9
+    }
+  ],
+  "enroll": [
+    {
+      "courseid": 1,
+      "title": "Big Data",
+      "description": "Big Data is a collection of data that is huge in volume, yet growing exponentially with time. It is a data with so large size and complexity that none of traditional data management tools can store it or process it efficiently. Big data is also a data but with huge size.",
+      "image": "../../assets/image/bigdata.jpg",
+      "path": "/bigdata",
+      "id": 1,
+      "EmailId": "maha@gmail.com"
+    },
+    {
+      "courseid": 2,
+      "description": "DevOps (a portmanteau of “development” and “operations”) is the combination of practices and tools designed to increase an organization's ability to deliver applications and services faster than traditional software development processes.",
+      "image": "../../assets/image/dev.webp",
+      "title": "DevOps",
+      "path": "/devops",
+      "id": 2,
+      "EmailId": "maha@gmail.com"
+    },
+    {
+      "courseid": "9",
+      "title": "CyberSecurity",
+      "description": "Cyber security is the practice of defending computers, servers, mobile devices, electronic systems, networks, and data from malicious attacks. It's also known as information technology security or electronic information security.",
+      "image": "../../assets/image/cyberimg.jpg",
+      "path": "/cyber",
+      "id": 9,
+      "EmailId": "sakthi@gmail.com"
+    },
+    {
+      "courseid": 8,
+      "description": "Cloud computing is the on-demand availability of computer system resources, especially data storage (cloud storage) and computing power, without direct active management by the user.",
+      "image": "../../assets/image/cloud.jpg",
+      "title": "Cloud Computing",
+      "path": "/cloud",
+      "id": 8,
+      "EmailId": "sakthi@gmail.com"
+    },
+    {
+      "courseid": 7,
+      "description": "React is used for building interactive user interfaces and web applications quickly and efficiently with significantly less code than you would with vanilla JavaScript.",
+      "image": "../../assets/image/react.avif",
+      "title": "React",
+      "path": "/react",
+      "id": 7,
+      "EmailId": "sakthi@gmail.com"
+    },
+    {
+      "courseid": 2,
+      "description": "DevOps (a portmanteau of “development” and “operations”) is the combination of practices and tools designed to increase an organization's ability to deliver applications and services faster than traditional software development processes.",
+      "image": "../../assets/image/dev.webp",
+      "title": "DevOps",
+      "path": "/devops",
+      "EmailId": "sakthi@gmail.com",
+      "id": 10
+    },
+    {
+      "courseid": 3,
+      "description": "JavaScript,often abbreviated as JS, is a programming language that is one of the core technologies of the World Wide Web, alongside HTML and CSS.",
+      "image": "../../assets/image/java.jpg",
+      "title": "JavaScript",
+      "path": "/java",
+      "EmailId": "sakthi@gmail.com",
+      "id": 11
+    },
+    {
+      "courseid": "9",
+      "title": "CyberSecurity",
+      "description": "Cyber security is the practice of defending computers, servers, mobile devices, electronic systems, networks, and data from malicious attacks. It's also known as information technology security or electronic information security.",
+      "image": "../../assets/image/cyberimg.jpg",
+      "path": "/cyber",
+      "EmailId": null,
+      "id": 12
+    },
+    {
+      "courseid": 8,
+      "description": "Cloud computing is the on-demand availability of computer system resources, especially data storage (cloud storage) and computing power, without direct active management by the user.",
+      "image": "../../assets/image/cloud.jpg",
+      "title": "Cloud Computing",
+      "path": "/cloud",
+      "EmailId": null,
+      "id": 13
+    },
+    {
+      "courseid": 8,
+      "description": "Cloud computing is the on-demand availability of computer system resources, especially data storage (cloud storage) and computing power, without direct active management by the user.",
+      "image": "../../assets/image/cloud.jpg",
+      "title": "Cloud Computing",
+      "path": "/cloud",
+      "EmailId": "sherlin@gmail.com",
+      "id": 14
+    },
+    {
+      "courseid": 1,
+      "title": "Big Data",
+      "description": "Big Data is a collection of data that is huge in volume, yet growing exponentially with time. It is a data with so large size and complexity that none of traditional data management tools can store it or process it efficiently. Big data is also a data but with huge size.",
+      "image": "../../assets/image/bigdata.jpg",
+      "path": "/bigdata",
+      "EmailId": "sherlin@gmail.com",
+      "id": 15
+    },
+    {
+      "courseid": 2,
+      "description": "DevOps (a portmanteau of “development” and “operations”) is the combination of practices and tools designed to increase an organization's ability to deliver applications and services faster than traditional software development processes.",
+      "image": "../../assets/image/dev.webp",
+      "title": "DevOps",
+      "path": "/devops",
+      "EmailId": "sherlin@gmail.com",
+      "id": 16
+    },
+    {
+      "courseid": 1,
+      "title": "Big Data",
+      "description": "Big Data is a collection of data that is huge in volume, yet growing exponentially with time. It is a data with so large size and complexity that none of traditional data management tools can store it or process it efficiently. Big data is also a data but with huge size.",
+      "image": "../../assets/image/bigdata.jpg",
+      "path": "/bigdata",
+      "EmailId": "kk@gmail.com",
+      "id": 17
+    },
+    {
+      "courseid": 2,
+      "description": "DevOps (a portmanteau of “development” and “operations”) is the combination of practices and tools designed to increase an organization's ability to deliver applications and services faster than traditional software development processes.",
+      "image": "../../assets/image/dev.webp",
+      "title": "DevOps",
+      "path": "/devops",
+      "EmailId": "kk@gmail.com",
+      "id": 18
     }
   ]
-
 }

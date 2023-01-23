@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { ToastrService } from 'ngx-toastr';
 import { EnrollService } from './enroll.service';
 
@@ -7,22 +7,35 @@ import { EnrollService } from './enroll.service';
   templateUrl: './enroll.component.html',
   styleUrls: ['./enroll.component.css']
 })
-export class EnrollComponent implements OnInit {
-  public courses!: any
-  public grandtotal: number = 0;
+export class EnrollComponent {
+  headArray = [
+    { 'Head': 'Id', 'FieldName': 'id' },
+    { 'Head': 'CourseName', 'FieldName': 'title' },
+    { 'Head': 'Action', 'FieldName': '' }
+  ];
+  public enrolldata: any = [];
+  public courses: any = [];
   constructor(private enrollservice: EnrollService, private toastr: ToastrService) { }
-
   ngOnInit(): void {
-    this.enrollservice.getcourse().subscribe(res => {
-      console.log('ress', res);
+    this.getCourse();
+  }
+  getCourse() {
+    this.enrollservice.getCourse().subscribe(res => {
       this.courses = res;
-      this.grandtotal = this.enrollservice.gettotalprice();
     })
   }
-
-  delete(item: any) {
-    this.toastr.warning('Deleted from cart', 'title')
-    this.enrollservice.removeenrollitem(item)
-
+  getAllCourse() {
+    this.enrollservice.getCourse()
+      .subscribe(res => {
+        this.courses = res;
+        console.log(res);
+      })
+  }
+  delete(data: any) {
+    this.toastr.warning('Deleted from Enrollment')
+    this.enrollservice.deleteEnroll(data.id)
+      .subscribe(res => {
+        this.getAllCourse();
+      })
   }
 }

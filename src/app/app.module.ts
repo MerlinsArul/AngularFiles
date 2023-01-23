@@ -6,21 +6,17 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
-import { CookieService } from 'ngx-cookie-service';
 import { OverlayModule } from '@angular/cdk/overlay';
-import { UserService } from './shared/services/user.service';
 import { ToastrModule } from 'ngx-toastr';
-import { AuthguardGuard } from './shared/services/authguard.guard';
 import { SharedModule } from './shared/shared.module';
-//import { MenuComponent } from '../shared/component/menu/menu.component';
-
+import { AuthGuard } from './shared/services/auth.guard';
+import { AdminModule } from './admin/admin.module';
+import { HomeModule } from './home/home.module';
 
 @NgModule({
   declarations: [
     AppComponent,
-
-
-  ],
+   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -30,13 +26,13 @@ import { SharedModule } from './shared/shared.module';
     MatSlideToggleModule,
     OverlayModule,
     SharedModule,
+    AdminModule,
+    HomeModule,
     ToastrModule.forRoot()
   ],
-
-
-  providers: [CookieService,
-    UserService,
-    AuthguardGuard],
+  providers: [
+    AuthGuard
+  ],
 
   bootstrap: [AppComponent]
 })

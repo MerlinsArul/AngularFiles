@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 import { ToastrService } from 'ngx-toastr';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-signup',
@@ -10,38 +11,31 @@ import { ToastrService } from 'ngx-toastr';
   styleUrls: ['./signup.component.css']
 })
 export class SignupComponent implements OnInit {
-
-  registerForm !: FormGroup 
+  registerForm !: FormGroup
   submitted = false;
-
-  constructor(private formBuilder: FormBuilder,private http:HttpClient,private router:Router,private toastr:ToastrService) { }
-
+  constructor(private formBuilder: FormBuilder, private http: HttpClient, private router: Router, private toastr: ToastrService) { }
   ngOnInit() {
-      this.registerForm = this.formBuilder.group({
-         
-          Firstname: ['', Validators.required],
-          Lastname: ['', Validators.required],
-          EmailId: ['', [Validators.required, Validators.email]],
-          password: ['', [Validators.required, Validators.minLength(6)]],
-          confirmPassword: ['', Validators.required],
-          acceptTerms: [false, Validators.requiredTrue]
-      }, 
-      );
+    this.registerForm = this.formBuilder.group({
+      Firstname: ['', Validators.required],
+      Lastname: ['', Validators.required],
+      EmailId: ['', [Validators.required, Validators.email]],
+      password: ['', [Validators.required, Validators.pattern('(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9]).{6,}')]],
+      confirmPassword: ['', Validators.required],
+      acceptTerms: [false, Validators.requiredTrue],
+    });
   }
-
-  // convenience getter for easy access to form fields
   get f() { return this.registerForm.controls; }
-   signup(){
+  signUp() {
     this.submitted = true;
     if (this.registerForm.invalid) {
-          return;
-             }
-    this.http.post<any>("http://localhost:3000/posts",this.registerForm.value).subscribe(res=>{
- this.toastr.success('You have Registered Successfully','title')
-    this.registerForm.reset();
-    this.router.navigate(['login'])
-      },err=>{
-        this.toastr.warning('Something Went wrong','title')
-      })  
+      return;
     }
+    this.http.post<any>(environment.baseUrl + "/users/", this.registerForm.value).subscribe(res => {
+      this.toastr.success('You have Registered Successfully')
+      this.registerForm.reset();
+      this.router.navigate(['/login'])
+    }, err => {
+      this.toastr.warning('Something Went wrong')
+    })
+  }
 }

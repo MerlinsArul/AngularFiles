@@ -1,8 +1,9 @@
 import { Component, Inject, OnInit } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 import { ToastrService } from 'ngx-toastr';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-login',
@@ -11,60 +12,37 @@ import { ToastrService } from 'ngx-toastr';
 })
 
 export class LoginComponent implements OnInit {
-
   loginform: any = FormGroup;
   loginarray: any = {}
-
-  constructor(private formBuilder: FormBuilder, private router: Router, private http: HttpClient,private toastr:ToastrService) { }
-  
+  constructor(private router: Router, private http: HttpClient, private toastr: ToastrService) { }
   ngOnInit(): void {
     this.loginform = new FormGroup({
-      EmailId: new FormControl('', Validators.required),
+      EmailId: new FormControl('', Validators.email),
       password: new FormControl('', Validators.required)
     })
   }
-
   login() {
-
-    //   localStorage.setItem('token',"tokenwasgiven"),
-    //  this.loginform.value.EmailId="merlinsjuliet@gmail.com" ? localStorage.setItem('usertype','user'):localStorage.setItem('usertype','admin')
-    //  console.log("You have logged  in");
-
-    console.log(this.loginarray);
-    localStorage.setItem('EmailId',this.loginform.value.EmailId)
-    localStorage.setItem("Password",this.loginform.value.password)
-    // this.cookie.set("EmailId", JSON.stringify(this.loginarray));
-    // this.cookie.set("Password", JSON.stringify(this.loginarray));
-    // alert("user id(" + this.cookie.get("EmailId") + ")")
-
+    localStorage.setItem('EmailId', this.loginform.value.EmailId)
+    localStorage.setItem("Password", this.loginform.value.password)
     if (this.loginarray.EmailId == "merlinsjuliet@gmail.com" && this.loginarray.password == "Merlins@01")
-      this.router.navigate(['/adminpage'])
-
+      this.router.navigate(['/admin'])
     else {
-
-      this.http.get<any>("http://localhost:3000/posts").subscribe((res: any[]) => {
-        //matching email and password
+      this.http.get<any>(environment.baseUrl + "/users").subscribe((res: any[]) => {
         const user = res.find((a: any) => {
           return a.EmailId === this.loginform.value.EmailId && a.password === this.loginform.value.password
         })
-        //condition check for login
         if (user) {
-         this.toastr.success('You have logged in Successfully','title')
+          this.toastr.success('You have logged in Successfully')
           this.loginform.reset();
-          this.router.navigate(['/homepage'])
-
+          this.router.navigate(['/home'])
         }
         else {
-          this.toastr.warning("user not found with these credentials",'title')
+          this.toastr.warning("user not found with these credentials")
         }
-
         (_err: any) => {
           this.toastr.warning("something went wrong");
-
         }
       }
-
-
       )
     }
   }

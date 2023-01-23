@@ -2,81 +2,63 @@
 <nav class="navbar navbar-light bg coln mynav">
   <div class="col-md-9">
     <h1>User Personal Info</h1>
-    </div>
-    <div class="d-flex">
-      <button type="button" data-toggle="modal" data-target="#exampleModal" class="btn btn-light">Add User</button>
-    </div>
-    <button class="btnborder">
-      <i style="font-size:30px;" routerLink="/adminpage" class="fas fa-home"></i>
+  </div>
+  <div class="d-flex">
+    <button type="button" (click)="add()" data-toggle="modal" data-target="#exampleModal" class="btn btn-light">Add User</button>&nbsp;
+    <button type="button" data-toggle="modal" data-target="#exampleModal" class="btn btn-light">Edit User</button>
+  </div>
+  <button class="btnborder">
+    <i style="font-size:30px;" routerLink="/admin" class="fas fa-home"></i>
   </button>
 </nav>
-<div class ="home-section">
-<table class="table mt-3">
-  <thead>
-    <tr>
-      <th scope="col">Id</th>
-      <th scope="col">Firstname</th>
-      <th scope="col">Lastname</th>
-      <th scope="col">EmailId</th>
-      <th scope="col">Password</th>
-    
-    </tr>
-  </thead>
-  <tbody>
-    <tr *ngFor="let d of userData">
-      <td>{{d.id}}</td>
-      <td>{{d.Firstname}}</td>
-      <td>{{d.Lastname}}</td>
-      <td>{{d.EmailId}}</td>
-      <td>{{d.password}}</td>
-      <td>
-        <button type="button" data-toggle="modal" data-target="#exampleModal" class="btn btn-secondary"
-          (click)="onEdit(d)">Edit</button>
-        <button class="btn btn-danger mx-3" (click)="deleteUser(d)">Delete</button>
-      </td>
-    </tr>
-  </tbody>
-</table>
-<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-  aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">User detail</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
+<div class="home-section">
+  <div class="container-fluid">
+    <div class="card">
+      <div class="card-header bg-primary text-white">
+        User Info
       </div>
-      <div class="modal-body">
-        <form [formGroup]="formValue">
-          <div class="form-group">
-            <label for="exampleInputEmail1">Firstname</label>
-            <input type="text" formControlName="Firstname" class="form-control" id="exampleInputEmail1"
-              placeholder="Firstname">
+      <div class="card-body">
+        <div class="row">
+          <div class="col-md-12">
+            <app-table [HeadArray]="headArray" [GridArray]="userData" (onEdit)="onEdit($event)"
+              (onDelete)="deleteUser($event)"></app-table>
           </div>
-          <div class="form-group">
-            <label for="exampleInputEmail1">Lastname</label>
-            <input type="text" formControlName="Lastname" class="form-control" id="exampleInputEmail1"
-              placeholder="Lastname">
-          </div>
-          <div class="form-group">
-            <label for="exampleInputEmail1">EmailId</label>
-            <input type="email" formControlName="EmailId" class="form-control" id="exampleInputEmail1"
-              placeholder="email">
-          </div>
-          <div class="form-group">
-            <label for="exampleInputPassword1">Password</label>
-            <input type="password" formControlName="Password" class="form-control" id="exampleInputPassword1"
-              placeholder="Password">
-          </div>
-        </form>
-      </div>
-      <div class="modal-footer">
-        <button type="button" id="cancel" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" (click)="postUserdetails()" class="btn btn-primary">Add</button>
-        <button type="button" (click)="UpdateUserdetails()" class="btn btn-primary">Update</button>
+        </div>
       </div>
     </div>
   </div>
-</div>
+  <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">User detail</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form [formGroup]="formValue">
+            <div class="form-group">
+              <label for="exampleInputEmail1">Firstname</label>
+              <input type="text" formControlName="Firstname" class="form-control" placeholder="Firstname">
+            </div>
+            <div class="form-group">
+              <label for="exampleInputEmail1">Lastname</label>
+              <input type="text" formControlName="Lastname" class="form-control" placeholder="Lastname">
+            </div>
+            <div class="form-group">
+              <label for="exampleInputEmail1">EmailId</label>
+              <input type="email" formControlName="EmailId" class="form-control" placeholder="email">
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" id="cancel" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button *ngIf="showadd" type="button" (click)="postUserdetails()" class="btn btn-primary">Add</button>
+          <button *ngIf="showupdate"type="button" (click)="updateUserdetails()" class="btn btn-primary">Update</button>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>

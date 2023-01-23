@@ -8,10 +8,6 @@ import { UserService } from '../services/user.service';
   styleUrls: ['./navbar.component.css']
 })
 export class NavbarComponent implements OnInit {
-
-  constructor(public user:UserService) { }
-
-  ngOnInit(): void {
-  }
-
+  constructor(public user: UserService) { }
+  ngOnInit(): void { }
 }
