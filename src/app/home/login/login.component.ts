@@ -14,14 +14,17 @@ import { environment } from 'src/environments/environment';
 export class LoginComponent implements OnInit {
   public loginform: any = FormGroup;
   public loginarray: any = {}
+
   constructor(private router: Router, private http: HttpClient, private toastr: ToastrService) { }
+
   ngOnInit(): void {
     this.loginform = new FormGroup({
       EmailId: new FormControl('', Validators.email),
       password: new FormControl('', Validators.required)
     })
   }
-  login() {
+
+  public login() {
     localStorage.setItem('EmailId', this.loginform.value.EmailId)
     localStorage.setItem("Password", this.loginform.value.password)
     if (this.loginarray.EmailId == "merlinsjuliet@gmail.com" && this.loginarray.password == "Merlins@01")
@@ -42,8 +45,7 @@ export class LoginComponent implements OnInit {
         (_err: any) => {
           this.toastr.warning("something went wrong");
         }
-      }
-      )
+      })
     }
   }
 }

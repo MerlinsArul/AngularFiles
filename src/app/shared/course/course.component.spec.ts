@@ -1,4 +1,6 @@
+import { HttpClient, HttpHandler } from '@angular/common/http';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { ToastrService } from 'ngx-toastr';
 
 import { CourseComponent } from './course.component';
 
@@ -8,9 +10,11 @@ describe('CourseComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ CourseComponent ]
+      declarations: [CourseComponent],
+      providers: [HttpClient,
+        HttpHandler, { provide: ToastrService, useValue: ToastrService }]
     })
-    .compileComponents();
+      .compileComponents();
 
     fixture = TestBed.createComponent(CourseComponent);
     component = fixture.componentInstance;

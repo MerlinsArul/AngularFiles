@@ -11,9 +11,11 @@ import { environment } from 'src/environments/environment';
   styleUrls: ['./signup.component.css']
 })
 export class SignupComponent implements OnInit {
-  registerForm !: FormGroup
-  submitted = false;
+  public registerForm !: FormGroup
+  public submitted = false;
+
   constructor(private formBuilder: FormBuilder, private http: HttpClient, private router: Router, private toastr: ToastrService) { }
+
   ngOnInit() {
     this.registerForm = this.formBuilder.group({
       Firstname: ['', Validators.required],
@@ -25,7 +27,8 @@ export class SignupComponent implements OnInit {
     });
   }
   get f() { return this.registerForm.controls; }
-  signUp() {
+
+  public signUp() {
     this.submitted = true;
     if (this.registerForm.invalid) {
       return;

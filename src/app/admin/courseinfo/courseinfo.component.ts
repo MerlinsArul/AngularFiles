@@ -9,19 +9,23 @@ import { CourseList } from '../../shared/Model/Course';
   templateUrl: './courseinfo.component.html',
   styleUrls: ['./courseinfo.component.css']
 })
+
 export class CourseinfoComponent implements OnInit {
   public showAdd!: boolean;
   public showUpdate!: boolean;
   public courseForm!: FormGroup
   public coursemodObj: CourseModel = new CourseModel
   public courseData: any;
+
   constructor(private formbuilder: FormBuilder, private courseservice: CourseService, private toastr: ToastrService) { }
+
   public headArray = [
     { 'Head': 'CourseId', 'FieldName': 'courseid' },
     { 'Head': 'CourseName', 'FieldName': 'title' },
     { 'Head': 'Description', 'FieldName': 'description' },
     { 'Head': 'Action', 'FieldName': '' }
   ];
+
   ngOnInit(): void {
     this.courseForm = this.formbuilder.group({
       courseid: [''],
@@ -32,24 +36,26 @@ export class CourseinfoComponent implements OnInit {
     this.getCourse();
     this.getAllCourse();
   }
-  add() {
+
+  public add() {
     this.showAdd = true;
     this.showUpdate = false;
   }
-  getCourse() {
+
+  public getCourse() {
     this.courseservice.getCourse(this.courseData).subscribe((res: any) => {
       this.courseData = res;
-      console.log(res);
     })
   }
-  getAllCourse() {
+
+  public getAllCourse() {
     this.courseservice.getCourse(this.courseData)
       .subscribe(res => {
         this.courseData = res;
-        console.log(res);
       })
   }
-  onEdit(data: CourseModel) {
+
+  public onEdit(data: CourseModel) {
     this.showAdd = false;
     this.showUpdate = true;
     this.coursemodObj.id = data.id
@@ -57,7 +63,8 @@ export class CourseinfoComponent implements OnInit {
     this.courseForm.controls['title'].setValue(data.title);
     this.courseForm.controls['description'].setValue(data.description);
   }
-  updateCoursedetails() {
+
+  public updateCoursedetails() {
     this.coursemodObj.courseid = this.courseForm.value.courseid;
     this.coursemodObj.title = this.courseForm.value.title;
     this.coursemodObj.description = this.courseForm.value.description;
@@ -70,12 +77,12 @@ export class CourseinfoComponent implements OnInit {
         alert("something went wrong")
       })
   }
-  postCoursedetails() {
+
+  public postCoursedetails() {
     this.coursemodObj.courseid = this.courseForm.value.courseid;
     this.coursemodObj.title = this.courseForm.value.title;
     this.coursemodObj.description = this.courseForm.value.description;
     this.courseservice.postCourse(this.coursemodObj).subscribe(res => {
-      console.log(res);
       this.courseForm.reset();
       this.getAllCourse();
       this.toastr.success("Course Added Successfully")
@@ -84,7 +91,8 @@ export class CourseinfoComponent implements OnInit {
         alert("something went wrong")
       })
   }
-  deleteCourse(item: CourseList) {
+
+  public deleteCourse(item: CourseList) {
     this.courseservice.deleteCourse(item.id)
       .subscribe(res => {
         this.toastr.warning("Course Deleted");

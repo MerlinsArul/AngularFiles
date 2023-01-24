@@ -7,9 +7,12 @@ import { Router } from '@angular/router';
   templateUrl: './checkout.component.html',
   styleUrls: ['./checkout.component.css']
 })
+
 export class CheckoutComponent implements OnInit {
   public checkoutForm: any = FormGroup;
+
   constructor(private router: Router) { }
+
   ngOnInit(): void {
     this.checkoutForm = new FormGroup({
       EmailId: new FormControl('', Validators.email),
@@ -17,10 +20,12 @@ export class CheckoutComponent implements OnInit {
       phonenumber: new FormControl('', Validators.required),
     })
   }
-  explore() {
+
+  public explore() {
     this.router.navigate(['/coursefile'])
   }
-  close() {
+
+  public close() {
     this.router.navigate(['/enroll'])
   }
 }

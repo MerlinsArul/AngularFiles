@@ -13,4 +13,5 @@ const routes: Routes = [
     SharedModule],
   exports: [RouterModule]
 })
+
 export class AppRoutingModule { }

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { UsersideService } from 'src/app/shared/services/userside.service';
-import { UserModel } from '../../shared/Model/User';
+import { UserList, UserModel } from '../../shared/Model/User';
 import { ToastrService } from 'ngx-toastr';
 
 @Component({
@@ -9,19 +9,23 @@ import { ToastrService } from 'ngx-toastr';
   templateUrl: './userinfo.component.html',
   styleUrls: ['./userinfo.component.css']
 })
+
 export class UserinfoComponent implements OnInit {
   public showAdd!: boolean;
   public showUpdate!: boolean;
   public formValue!: FormGroup
   public usermodObj: UserModel = new UserModel()
   public userData: any;
+
   constructor(private formbuilder: FormBuilder, private json: UsersideService, private toastr: ToastrService) { }
+
   public headArray = [
     { 'Head': 'Firstname', 'FieldName': 'Firstname' },
     { 'Head': 'Lastname', 'FieldName': 'Lastname' },
     { 'Head': 'EmailId', 'FieldName': 'EmailId' },
     { 'Head': 'Action', 'FieldName': '' }
   ];
+
   ngOnInit(): void {
     this.formValue = this.formbuilder.group({
       Firstname: [''],
@@ -32,22 +36,26 @@ export class UserinfoComponent implements OnInit {
     this.getUser();
     this.getAllUser();
   }
-  add() {
+
+  public add() {
     this.showAdd = true;
     this.showUpdate = false;
   }
-  getUser() {
+
+  public getUser() {
     this.json.getUser(this.userData).subscribe((res => {
       this.userData = res;
     }))
   }
-  getAllUser() {
+
+  public getAllUser() {
     this.json.getUser(this.userData)
       .subscribe(res => {
         this.userData = res;
       })
   }
-  postUserdetails() {
+
+  public postUserdetails() {
     this.usermodObj.Firstname = this.formValue.value.Firstname;
     this.usermodObj.Lastname = this.formValue.value.Lastname;
     this.usermodObj.EmailId = this.formValue.value.EmailId;
@@ -61,16 +69,17 @@ export class UserinfoComponent implements OnInit {
 
       })
   }
-  onEdit(d: any) {
+
+  public onEdit(d: UserModel) {
     this.showAdd = false
     this.showUpdate = true;
     this.usermodObj.id = d.id
     this.formValue.controls['Firstname'].setValue(d.Firstname);
     this.formValue.controls['Lastname'].setValue(d.Lastname);
     this.formValue.controls['EmailId'].setValue(d.EmailId);
-    this.formValue.controls['Password'].setValue(d.Password)
   }
-  updateUserdetails() {
+
+  public updateUserdetails() {
     this.usermodObj.Firstname = this.formValue.value.Firstname;
     this.usermodObj.Lastname = this.formValue.value.Lastname;
     this.usermodObj.EmailId = this.formValue.value.EmailId;
@@ -84,7 +93,8 @@ export class UserinfoComponent implements OnInit {
         alert("something went wrong")
       })
   }
-  deleteUser(data: UserModel) {
+
+  public deleteUser(data: UserList) {
     this.json.deleteUser(data['id'])
       .subscribe(res => {
         this.toastr.warning("User Deleted successfully")

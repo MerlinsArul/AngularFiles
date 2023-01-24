@@ -1,4 +1,7 @@
+import { HttpClient, HttpHandler } from '@angular/common/http';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { FormBuilder } from '@angular/forms';
+import { ToastrService } from 'ngx-toastr';
 
 import { CourseinfoComponent } from './courseinfo.component';
 
@@ -8,7 +11,10 @@ describe('CourseinfoComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [CourseinfoComponent]
+      declarations: [CourseinfoComponent],
+      providers: [FormBuilder,
+        HttpClient,
+        HttpHandler, { provide: ToastrService, useValue: ToastrService }]
     })
       .compileComponents();
 

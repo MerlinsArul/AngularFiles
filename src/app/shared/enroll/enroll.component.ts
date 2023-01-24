@@ -8,31 +8,37 @@ import { EnrollService } from './enroll.service';
   templateUrl: './enroll.component.html',
   styleUrls: ['./enroll.component.css']
 })
+
 export class EnrollComponent {
-  headArray = [
+  public headArray = [
     { 'Head': 'Id', 'FieldName': 'id' },
     { 'Head': 'CourseName', 'FieldName': 'title' },
     { 'Head': 'Action', 'FieldName': '' }
   ];
   public enrolldata: any = [];
   public courses: any = [];
+
   constructor(private enrollservice: EnrollService, private toastr: ToastrService) { }
+
   ngOnInit(): void {
     this.getCourse();
   }
-  getCourse() {
+
+  public getCourse() {
     this.enrollservice.getCourse().subscribe(res => {
       this.courses = res;
     })
   }
-  getAllCourse() {
+
+  public getAllCourse() {
     this.enrollservice.getCourse()
       .subscribe(res => {
         this.courses = res;
         console.log(res);
       })
   }
-  delete(data:CourseList) {
+
+  public delete(data: CourseList) {
     this.toastr.warning('Deleted from Enrollment')
     this.enrollservice.deleteEnroll(data.id)
       .subscribe(res => {

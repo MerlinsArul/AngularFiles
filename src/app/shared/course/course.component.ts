@@ -9,15 +9,19 @@ import { isNgTemplate } from '@angular/compiler';
   templateUrl: './course.component.html',
   styleUrls: ['./course.component.css']
 })
+
 export class CourseComponent implements OnInit {
   public courselist: any;
   public enrollist: any;
   public user = localStorage.getItem("EmailId");
+
   constructor(private courseservice: CourseService, private enrollservice: EnrollService, private toastr: ToastrService) { }
+
   ngOnInit(): void {
     this.check();
   }
-  check() {
+
+  public check() {
     this.enrollservice.enroll(this.enrollist).subscribe(res => {
       console.log(res);
       this.courseservice.getCourse(this.courselist).subscribe(res1 => {
@@ -33,11 +37,14 @@ export class CourseComponent implements OnInit {
       })
     })
   }
-  addtoEnroll(item: any) {
+
+  public addtoEnroll(item: any) {
     this.toastr.success('You have Enrolled Successfully')
     item.EmailId = this.user;
     this.enrollservice.addtoEnroll(item).subscribe();
-    this.check();
+    setTimeout(() => {
+      this.check()
+    }, 100);
   }
 }
 

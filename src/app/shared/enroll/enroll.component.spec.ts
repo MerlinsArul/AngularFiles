@@ -1,4 +1,6 @@
+import { HttpClient, HttpHandler } from '@angular/common/http';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { ToastrService } from 'ngx-toastr';
 import { EnrollComponent } from './enroll.component';
 
 describe('EnrollComponent', () => {
@@ -7,7 +9,9 @@ describe('EnrollComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [EnrollComponent]
+      declarations: [EnrollComponent],
+      providers:[HttpClient,
+      HttpHandler,{provide:ToastrService, useValue:ToastrService}]
     })
       .compileComponents();
 

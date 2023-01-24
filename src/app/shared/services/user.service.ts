@@ -4,11 +4,13 @@ import { Router } from '@angular/router';
 @Injectable({
   providedIn: 'root'
 })
+
 export class UserService {
-  authenticate!: boolean;
+  public authenticate!: boolean;
+
   constructor(private router: Router) { }
 
-  isLogin = () => {
+  public isLogin = () => {
     if (this.getName()) {
       return true;
     }
@@ -16,10 +18,12 @@ export class UserService {
       return false
     }
   }
-  getName = () => {
+
+  public getName = () => {
     return localStorage.getItem('EmailId')
   }
-  logout() {
+
+  public logout() {
     localStorage.clear();
     this.router.navigate(['/home'])
   }
