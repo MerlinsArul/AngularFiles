@@ -1,15 +1,15 @@
 import { Component, Input, EventEmitter, Output, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-table',
-  templateUrl: './table.component.html',
-  styleUrls: ['./table.component.css']
+  selector: 'app-datatable',
+  templateUrl: './datatable.component.html',
+  styleUrls: ['./datatable.component.css']
 })
 
-export class TableComponent implements OnInit {
+export class DatatableComponent implements OnInit {
 
-  @Input() HeadArray: any[] = [];
-  @Input() GridArray: any[] = [];
+  @Input() Attribute: any[] = [];
+  @Input() Attr: any[] = [];
   @Output() onEdit = new EventEmitter<any>();
   @Output() onDelete = new EventEmitter<any>();
 

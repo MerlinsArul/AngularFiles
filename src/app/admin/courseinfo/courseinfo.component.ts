@@ -15,12 +15,12 @@ export class CourseinfoComponent implements OnInit {
   public showAdd!: boolean;
   public showUpdate!: boolean;
   public courseForm!: FormGroup
-  public coursemodObj: CourseModel = new CourseModel
-  public courseData : any;
+  public courseObj: CourseModel = new CourseModel
+  public courseData: any;
 
   constructor(private formbuilder: FormBuilder, private courseservice: CourseService, private toastr: ToastrService) { }
 
-  public headArray = [
+  public attribute = [
     { 'Head': 'CourseId', 'FieldName': 'courseid' },
     { 'Head': 'CourseName', 'FieldName': 'title' },
     { 'Head': 'Description', 'FieldName': 'description' },
@@ -58,33 +58,31 @@ export class CourseinfoComponent implements OnInit {
   public onEdit(data: CourseModel) {
     this.showAdd = false;
     this.showUpdate = true;
-    this.coursemodObj.id = data.id
-    this.courseForm.controls['courseid'].setValue(data.courseid);
-    this.courseForm.controls['title'].setValue(data.title);
-    this.courseForm.controls['description'].setValue(data.description);
-   }
+    this.courseObj.id = data.id
+    this.courseForm = this.formbuilder.group({
+      courseid: [data.courseid],
+      title: [data.title],
+      description: [data.description],
+      image: ['']
+    })
+  }
 
-  public updateCoursedetails() {
-    // this.coursemodObj.courseid = this.courseForm.value.courseid;
-    // this.coursemodObj.title = this.courseForm.value.title;
-    // this.coursemodObj.description = this.courseForm.value.description;
-    this.coursemodObj = this.courseForm.value;
-    this.courseservice.updateCourse(this.coursemodObj, this.coursemodObj.id).subscribe(res => {
+  public updateCourseDetails(id: number) {
+    this.courseObj = this.courseForm.value;
+    this.courseservice.updateCourse(this.courseForm.value, id).subscribe(res => {
       this.courseForm.reset();
       this.getAllCourse();
       this.toastr.success("Course Updated Successfully");
     },
       (_err: any) => {
+        console.log('errr', _err);
         alert("something went wrong")
       })
   }
 
-  public postCoursedetails() {
-    // this.coursemodObj.courseid = this.courseForm.value.courseid;
-    // this.coursemodObj.title = this.courseForm.value.title;
-    // this.coursemodObj.description = this.courseForm.value.description;
-    this.coursemodObj = this.courseForm.value;
-    this.courseservice.postCourse(this.coursemodObj).subscribe(res => {
+  public postCourseDetails() {
+    this.courseObj = this.courseForm.value;
+    this.courseservice.postCourse(this.courseObj).subscribe(res => {
       this.courseForm.reset();
       this.getAllCourse();
       this.toastr.success("Course Added Successfully")
@@ -106,7 +104,7 @@ export class CourseinfoComponent implements OnInit {
     console.log(input.files); if (input.files && input.files[0]) {
       var reader = new FileReader(); reader.onload = (event: any) => {
         console.log('Got here: ', event.target.result);
-        this.coursemodObj.image = event.target.result;
+        this.courseObj.image = event.target.result;
       }
       reader.readAsDataURL(input.files[0]);
     }

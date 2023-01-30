@@ -26,6 +26,7 @@ export class CourseService {
   }
 
   public updateCourse(data: {}, id: number) {
+    console.log('data', data)
     return this.http.put<any>(environment.baseUrl + "/courses/" + id, data)
       .pipe(map((res: any) => {
         return res;

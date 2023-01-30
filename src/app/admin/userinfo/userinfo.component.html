@@ -21,8 +21,8 @@
       <div class="card-body">
         <div class="row">
           <div class="col-md-12">
-            <app-table [HeadArray]="headArray" [GridArray]="userData" (onEdit)="onEdit($event)"
-              (onDelete)="deleteUser($event)"></app-table>
+            <app-datatable [Attribute]="attribute" [Attr]="userData" (onEdit)="onEdit($event)"
+              (onDelete)="deleteUser($event)"></app-datatable>
           </div>
         </div>
       </div>
@@ -56,8 +56,9 @@
         </div>
         <div class="modal-footer">
           <button type="button" id="cancel" class="btn btn-secondary" data-dismiss="modal">Close</button>
-          <button *ngIf="showAdd" type="button" (click)="postUserdetails()" class="btn btn-primary">Add</button>
-          <button *ngIf="showUpdate" type="button" (click)="updateUserdetails()" class="btn btn-primary">Update</button>
+          <button *ngIf="showAdd" type="button" (click)="postUserDetails()" class="btn btn-primary">Add</button>
+          <button *ngIf="showUpdate" type="button" (click)="updateUserDetails(userObj.id)"
+            class="btn btn-primary">Update</button>
         </div>
       </div>
     </div>

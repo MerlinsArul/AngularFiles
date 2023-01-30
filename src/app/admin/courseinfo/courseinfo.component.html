@@ -21,8 +21,8 @@
       <div class="card-body">
         <div class="row">
           <div class="col-md-12">
-            <app-table [HeadArray]="headArray" [GridArray]="courseData" (onEdit)="onEdit($event)"
-              (onDelete)="deleteCourse($event)"></app-table>
+            <app-datatable [Attribute]="attribute" [Attr]="courseData" (onEdit)="onEdit($event)"
+              (onDelete)="deleteCourse($event)"></app-datatable>
           </div>
         </div>
       </div>
@@ -54,14 +54,15 @@
             </div>
             <div class="form-group">
               <label for="exampleInputdescription">Upload</label>
-              <input type="file" (change)="onFile($event.target)" formControlName="image" class="form-control" placeholder="Image">
+              <input type="file" (change)="onFile($event.target)" formControlName="image" class="form-control"
+                placeholder="Image">
             </div>
           </form>
         </div>
         <div class="modal-footer">
           <button type="button" id="cancel" class="btn btn-secondary" data-dismiss="modal">Close</button>
-          <button *ngIf="showAdd" type="button" (click)="postCoursedetails()" class="btn btn-primary">Add</button>
-          <button *ngIf="showUpdate" type="button" (click)="updateCoursedetails()"
+          <button *ngIf="showAdd" type="button" (click)="postCourseDetails()" class="btn btn-primary">Add</button>
+          <button *ngIf="showUpdate" type="button" (click)="updateCourseDetails(courseObj.id)"
             class="btn btn-primary">Update</button>
         </div>
       </div>

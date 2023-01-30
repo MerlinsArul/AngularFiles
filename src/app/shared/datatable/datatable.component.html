@@ -3,12 +3,12 @@
         <table class="table table-bordered table-hover">
             <thead>
                 <tr>
-                    <th *ngFor="let head of HeadArray">{{head.Head}} </th>
+                    <th *ngFor="let head of Attribute">{{head.Head}} </th>
                 </tr>
             </thead>
             <tbody>
-                <tr *ngFor="let item of GridArray;let sr=index">
-                    <td *ngFor="let head of HeadArray">
+                <tr *ngFor="let item of Attr">
+                    <td *ngFor="let head of Attribute">
                         <div *ngIf="head.FieldName != ''">
                             {{item[head.FieldName]}}
                         </div>

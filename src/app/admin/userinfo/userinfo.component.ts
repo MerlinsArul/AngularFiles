@@ -14,12 +14,12 @@ export class UserinfoComponent implements OnInit {
   public showAdd!: boolean;
   public showUpdate!: boolean;
   public formValue!: FormGroup
-  public usermodObj: UserModel = new UserModel()
+  public userObj: UserModel = new UserModel()
   public userData: any;
 
   constructor(private formbuilder: FormBuilder, private json: UsersideService, private toastr: ToastrService) { }
 
-  public headArray = [
+  public attribute = [
     { 'Head': 'Firstname', 'FieldName': 'Firstname' },
     { 'Head': 'Lastname', 'FieldName': 'Lastname' },
     { 'Head': 'EmailId', 'FieldName': 'EmailId' },
@@ -55,12 +55,34 @@ export class UserinfoComponent implements OnInit {
       })
   }
 
-  public postUserdetails() {
-    // this.usermodObj.Firstname = this.formValue.value.Firstname;
-    // this.usermodObj.Lastname = this.formValue.value.Lastname;
-    // this.usermodObj.EmailId = this.formValue.value.EmailId;
-    this.usermodObj=this.formValue.value;
-    this.json.postUser(this.usermodObj).subscribe(res => {
+  public onEdit(d: UserModel) {
+    this.showAdd = false
+    this.showUpdate = true;
+    this.userObj.id = d.id
+    this.formValue = this.formbuilder.group({
+      Firstname: [d.Firstname],
+      Lastname: [d.Lastname],
+      EmailId: [d.EmailId],
+      Password: [d.password]
+    })
+  }
+
+  public updateUserDetails(id: number) {
+    this.userObj = this.formValue.value
+    this.json.updateUser(this.formValue.value, id).subscribe(res => {
+      console.log(res);
+      this.formValue.reset();
+      this.getAllUser();
+      this.toastr.success("User Detail Updated Successfully")
+    },
+      (_err: any) => {
+        alert("something went wrong")
+      })
+  }
+
+  public postUserDetails() {
+    this.userObj = this.formValue.value;
+    this.json.postUser(this.userObj).subscribe(res => {
       this.formValue.reset();
       this.getAllUser();
       this.toastr.success("User Added Successfully")
@@ -68,33 +90,6 @@ export class UserinfoComponent implements OnInit {
       (_err: any) => {
         alert("something went wrong")
 
-      })
-  }
-
-  public onEdit(d: UserModel) {
-    this.showAdd = false
-    this.showUpdate = true;
-    this.usermodObj.id = d.id
-    this.formValue.controls['Firstname'].setValue(d.Firstname);
-    this.formValue.controls['Lastname'].setValue(d.Lastname);
-    this.formValue.controls['EmailId'].setValue(d.EmailId);
-  }
-
-  public updateUserdetails() {
-    this.usermodObj.Firstname = this.formValue.value.Firstname;
-    this.usermodObj.Lastname = this.formValue.value.Lastname;
-    this.usermodObj.EmailId = this.formValue.value.EmailId;
-    this.usermodObj.password = this.formValue.value.Password;
-    // this.usermodObj=this.formValue.value
-    this.json.updateUser(this.usermodObj, this.usermodObj.id).subscribe(res => {
-      console.log(res);
-      
-      this.formValue.reset();
-      this.getAllUser();
-      this.toastr.success("User Detail Updated Successfully")
-    },
-      (_err: any) => {
-        alert("something went wrong")
       })
   }
 

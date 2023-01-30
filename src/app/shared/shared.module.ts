@@ -19,8 +19,8 @@ import { JavaComponent } from './study/java/java.component';
 import { ReactComponent } from './study/react/react.component';
 import { CloudComponent } from './study/cloud/cloud.component';
 import { ReactiveFormsModule } from '@angular/forms';
-import { TableComponent } from './table/table.component';
 import { CoursefileComponent } from './enroll/coursefile/coursefile.component';
+import { DatatableComponent} from './datatable/datatable.component';
 
 
 @NgModule({
@@ -41,8 +41,8 @@ import { CoursefileComponent } from './enroll/coursefile/coursefile.component';
     JavaComponent,
     ReactComponent,
     CloudComponent,
-    TableComponent,
     CoursefileComponent,
+    DatatableComponent
   
   ],
   imports: [
@@ -54,7 +54,7 @@ import { CoursefileComponent } from './enroll/coursefile/coursefile.component';
   exports: [
     NavbarComponent,
     FooterComponent,
-    TableComponent
+    DatatableComponent
   ],
   providers: [
     AuthGuard
