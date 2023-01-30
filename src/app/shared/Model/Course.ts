@@ -3,6 +3,7 @@ export class CourseModel {
     title: String = "";
     description: String = "";
     id: number = 0;
+    image:string="";
 }
 
 export class CourseList {
@@ -10,5 +11,5 @@ export class CourseList {
     title?: String = "";
     description?: String = "";
     id: number = 0;
-
+   
 }

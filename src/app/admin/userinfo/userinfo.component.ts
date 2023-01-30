@@ -56,9 +56,10 @@ export class UserinfoComponent implements OnInit {
   }
 
   public postUserdetails() {
-    this.usermodObj.Firstname = this.formValue.value.Firstname;
-    this.usermodObj.Lastname = this.formValue.value.Lastname;
-    this.usermodObj.EmailId = this.formValue.value.EmailId;
+    // this.usermodObj.Firstname = this.formValue.value.Firstname;
+    // this.usermodObj.Lastname = this.formValue.value.Lastname;
+    // this.usermodObj.EmailId = this.formValue.value.EmailId;
+    this.usermodObj=this.formValue.value;
     this.json.postUser(this.usermodObj).subscribe(res => {
       this.formValue.reset();
       this.getAllUser();
@@ -84,7 +85,10 @@ export class UserinfoComponent implements OnInit {
     this.usermodObj.Lastname = this.formValue.value.Lastname;
     this.usermodObj.EmailId = this.formValue.value.EmailId;
     this.usermodObj.password = this.formValue.value.Password;
+    // this.usermodObj=this.formValue.value
     this.json.updateUser(this.usermodObj, this.usermodObj.id).subscribe(res => {
+      console.log(res);
+      
       this.formValue.reset();
       this.getAllUser();
       this.toastr.success("User Detail Updated Successfully")

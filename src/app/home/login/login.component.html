@@ -13,7 +13,8 @@
         placeholder="enter password">
       <small *ngIf="loginform.get('password')?.invalid && loginform.get('password')?.touched"
         class="text-danger">password is Required</small><br>
-      <button type="submit" [disabled]="loginform.invalid" class="btn btn-primary" (click)="login()">Login</button>
+      <button type="submit" [disabled]="loginform.invalid" class="btn btn-primary" (click)="login()">Login</button>	&nbsp;
+      <button type="submit"  class="btn btn-primary" (click)="close()">Close</button>
     </form>
     <a style="color:blue;margin-top:10px;" routerLink="/signup">New user? Click to signup</a>
   </div>

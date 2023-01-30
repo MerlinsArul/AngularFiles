@@ -4,6 +4,7 @@ import { CourseModel } from '../../shared/Model/Course'
 import { CourseService } from 'src/app/shared/course/course.service';
 import { ToastrService } from 'ngx-toastr';
 import { CourseList } from '../../shared/Model/Course';
+
 @Component({
   selector: 'app-courseinfo',
   templateUrl: './courseinfo.component.html',
@@ -15,7 +16,7 @@ export class CourseinfoComponent implements OnInit {
   public showUpdate!: boolean;
   public courseForm!: FormGroup
   public coursemodObj: CourseModel = new CourseModel
-  public courseData: any;
+  public courseData : any;
 
   constructor(private formbuilder: FormBuilder, private courseservice: CourseService, private toastr: ToastrService) { }
 
@@ -31,6 +32,7 @@ export class CourseinfoComponent implements OnInit {
       courseid: [''],
       title: [''],
       description: [''],
+      image: ['']
 
     })
     this.getCourse();
@@ -43,16 +45,14 @@ export class CourseinfoComponent implements OnInit {
   }
 
   public getCourse() {
-    this.courseservice.getCourse(this.courseData).subscribe((res: any) => {
-      this.courseData = res;
-    })
+    this.courseservice.getCourse(this.courseData).subscribe((res: any) =>
+      this.courseData = res)
   }
 
   public getAllCourse() {
     this.courseservice.getCourse(this.courseData)
-      .subscribe(res => {
-        this.courseData = res;
-      })
+      .subscribe(res =>
+        this.courseData = res)
   }
 
   public onEdit(data: CourseModel) {
@@ -62,12 +62,13 @@ export class CourseinfoComponent implements OnInit {
     this.courseForm.controls['courseid'].setValue(data.courseid);
     this.courseForm.controls['title'].setValue(data.title);
     this.courseForm.controls['description'].setValue(data.description);
-  }
+   }
 
   public updateCoursedetails() {
-    this.coursemodObj.courseid = this.courseForm.value.courseid;
-    this.coursemodObj.title = this.courseForm.value.title;
-    this.coursemodObj.description = this.courseForm.value.description;
+    // this.coursemodObj.courseid = this.courseForm.value.courseid;
+    // this.coursemodObj.title = this.courseForm.value.title;
+    // this.coursemodObj.description = this.courseForm.value.description;
+    this.coursemodObj = this.courseForm.value;
     this.courseservice.updateCourse(this.coursemodObj, this.coursemodObj.id).subscribe(res => {
       this.courseForm.reset();
       this.getAllCourse();
@@ -79,9 +80,10 @@ export class CourseinfoComponent implements OnInit {
   }
 
   public postCoursedetails() {
-    this.coursemodObj.courseid = this.courseForm.value.courseid;
-    this.coursemodObj.title = this.courseForm.value.title;
-    this.coursemodObj.description = this.courseForm.value.description;
+    // this.coursemodObj.courseid = this.courseForm.value.courseid;
+    // this.coursemodObj.title = this.courseForm.value.title;
+    // this.coursemodObj.description = this.courseForm.value.description;
+    this.coursemodObj = this.courseForm.value;
     this.courseservice.postCourse(this.coursemodObj).subscribe(res => {
       this.courseForm.reset();
       this.getAllCourse();
@@ -98,6 +100,16 @@ export class CourseinfoComponent implements OnInit {
         this.toastr.warning("Course Deleted");
         this.getAllCourse();
       })
+  }
+
+  public onFile(input: any) {
+    console.log(input.files); if (input.files && input.files[0]) {
+      var reader = new FileReader(); reader.onload = (event: any) => {
+        console.log('Got here: ', event.target.result);
+        this.coursemodObj.image = event.target.result;
+      }
+      reader.readAsDataURL(input.files[0]);
+    }
   }
 }
 

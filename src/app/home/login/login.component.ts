@@ -48,4 +48,8 @@ export class LoginComponent implements OnInit {
       })
     }
   }
+
+  public close(){
+    this.router.navigate(['/home'])
+  }
 }

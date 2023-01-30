@@ -22,6 +22,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { TableComponent } from './table/table.component';
 import { CoursefileComponent } from './enroll/coursefile/coursefile.component';
 
+
 @NgModule({
   declarations: [
     NavbarComponent,
@@ -42,6 +43,7 @@ import { CoursefileComponent } from './enroll/coursefile/coursefile.component';
     CloudComponent,
     TableComponent,
     CoursefileComponent,
+  
   ],
   imports: [
     CommonModule,

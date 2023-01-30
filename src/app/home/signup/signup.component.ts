@@ -41,4 +41,8 @@ export class SignupComponent implements OnInit {
       this.toastr.warning('Something Went wrong')
     })
   }
+
+  public close(){
+    this.router.navigate(['/home'])
+  }
 }
