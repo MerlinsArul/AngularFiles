@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { CourseService } from './course.service';
 import { EnrollService } from '../enroll/enroll.service';
 import { ToastrService } from 'ngx-toastr';
-import { isNgTemplate } from '@angular/compiler';
 
 @Component({
   selector: 'app-course',

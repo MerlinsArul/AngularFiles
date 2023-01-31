@@ -27,7 +27,7 @@ export class CourseinfoComponent implements OnInit {
     { 'Head': 'Action', 'FieldName': '' }
   ];
 
-  ngOnInit(): void {
+  public ngOnInit(): void {
     this.courseForm = this.formbuilder.group({
       courseid: [''],
       title: [''],
@@ -44,17 +44,20 @@ export class CourseinfoComponent implements OnInit {
     this.showUpdate = false;
   }
 
+  /*Get Courses from Server */
   public getCourse() {
-    this.courseservice.getCourse(this.courseData).subscribe((res: any) =>
+    this.courseservice.getCourse(this.courseData).subscribe(res =>
       this.courseData = res)
   }
 
+/*Get All Courses from Server */
   public getAllCourse() {
     this.courseservice.getCourse(this.courseData)
       .subscribe(res =>
         this.courseData = res)
   }
 
+  /* Edit the Course */
   public onEdit(data: CourseModel) {
     this.showAdd = false;
     this.showUpdate = true;
@@ -67,6 +70,7 @@ export class CourseinfoComponent implements OnInit {
     })
   }
 
+  
   public updateCourseDetails(id: number) {
     this.courseObj = this.courseForm.value;
     this.courseservice.updateCourse(this.courseForm.value, id).subscribe(res => {

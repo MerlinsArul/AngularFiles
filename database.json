@@ -266,6 +266,15 @@
       "path": "/devops",
       "EmailId": "sherlin@gmail.com",
       "id": 25
+    },
+    {
+      "courseid": 3,
+      "description": "JavaScript,often abbreviated as JS, is a programming language that is one of the core technologies of the World Wide Web, alongside HTML and CSS.",
+      "image": "../../assets/image/java.jpg",
+      "title": "JavaScript",
+      "path": "/java",
+      "EmailId": "sherlin@gmail.com",
+      "id": 26
     }
   ],
   "courses": [
@@ -342,7 +351,7 @@
       "id": 9
     },
     {
-      "courseid": "10",
+      "courseid": "100",
       "title": "yes",
       "description": "nb",
       "image": "",

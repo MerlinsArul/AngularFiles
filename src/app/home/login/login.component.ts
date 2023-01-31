@@ -1,4 +1,4 @@
-import { Component, Inject, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
@@ -17,7 +17,7 @@ export class LoginComponent implements OnInit {
 
   constructor(private router: Router, private http: HttpClient, private toastr: ToastrService) { }
 
-  ngOnInit(): void {
+  public ngOnInit(): void {
     this.loginform = new FormGroup({
       EmailId: new FormControl('', Validators.email),
       password: new FormControl('', Validators.required)
@@ -49,7 +49,7 @@ export class LoginComponent implements OnInit {
     }
   }
 
-  public close(){
+  public close() {
     this.router.navigate(['/home'])
   }
 }

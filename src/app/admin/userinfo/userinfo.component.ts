@@ -26,7 +26,7 @@ export class UserinfoComponent implements OnInit {
     { 'Head': 'Action', 'FieldName': '' }
   ];
 
-  ngOnInit(): void {
+  public ngOnInit(): void {
     this.formValue = this.formbuilder.group({
       Firstname: [''],
       Lastname: [''],
@@ -43,16 +43,14 @@ export class UserinfoComponent implements OnInit {
   }
 
   public getUser() {
-    this.json.getUser(this.userData).subscribe((res => {
-      this.userData = res;
-    }))
+    this.json.getUser(this.userData).subscribe(res =>
+      this.userData = res)
   }
 
   public getAllUser() {
     this.json.getUser(this.userData)
-      .subscribe(res => {
-        this.userData = res;
-      })
+      .subscribe(res =>
+        this.userData = res)
   }
 
   public onEdit(d: UserModel) {

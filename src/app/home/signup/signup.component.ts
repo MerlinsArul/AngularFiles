@@ -16,7 +16,7 @@ export class SignupComponent implements OnInit {
 
   constructor(private formBuilder: FormBuilder, private http: HttpClient, private router: Router, private toastr: ToastrService) { }
 
-  ngOnInit() {
+  public ngOnInit() {
     this.registerForm = this.formBuilder.group({
       Firstname: ['', Validators.required],
       Lastname: ['', Validators.required],
