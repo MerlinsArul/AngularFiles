@@ -12,6 +12,7 @@ export class UsersideService {
 
   constructor(private http: HttpClient) { }
 
+// To Add User Details to Server
   public postUser(data: {}) {
     return this.http.post<any>(environment.baseUrl + "/users/", data)
       .pipe(map((res: any) => {
@@ -19,6 +20,7 @@ export class UsersideService {
       }))
   }
 
+  // To Get User Details from Server
   public getUser(data: {}) {
     return this.http.get<any>(environment.baseUrl + "/users/", data)
       .pipe(map((res: any) => {
@@ -26,6 +28,7 @@ export class UsersideService {
       }))
   }
 
+  //To Update the User Details
   public updateUser(data: {}, id: number) {
     return this.http.put<any>(environment.baseUrl + "/users/" + id, data)
       .pipe(map((res: any) => {
@@ -33,6 +36,7 @@ export class UsersideService {
       }))
   }
 
+  //To Delete the User Details
   public deleteUser(id: number) {
     return this.http.delete<any>(environment.baseUrl + "/users/" + id)
       .pipe(map((res: any) => {

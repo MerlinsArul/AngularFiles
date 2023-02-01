@@ -349,13 +349,6 @@
       "image": "../../assets/image/cyberimg.jpg",
       "path": "/cyber",
       "id": 9
-    },
-    {
-      "courseid": "100",
-      "title": "yes",
-      "description": "nb",
-      "image": "",
-      "id": 10
     }
   ]
 }

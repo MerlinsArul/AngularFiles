@@ -10,26 +10,27 @@ import { ToastrService } from 'ngx-toastr';
 })
 
 export class CourseComponent implements OnInit {
-  public courselist: any;
-  public enrollist: any;
+  public courseList: any;
+  public enrolList: any;
   public user = localStorage.getItem("EmailId");
 
   constructor(private courseservice: CourseService, private enrollservice: EnrollService, private toastr: ToastrService) { }
 
-  ngOnInit(): void {
+  public ngOnInit(): void {
     this.check();
   }
 
+// To Check whether the course is enrolled or not
   public check() {
-    this.enrollservice.enroll(this.enrollist).subscribe(res => {
+    this.enrollservice.enroll(this.enrolList).subscribe(res => {
       console.log(res);
-      this.courseservice.getCourse(this.courselist).subscribe(res1 => {
-        this.courselist = res1;
+      this.courseservice.getCourse(this.courseList).subscribe(res1 => {
+        this.courseList = res1;
         res1.forEach((a: any, i: any) => {
           delete a.id;
           res.forEach((b: any) => {
             if (a.courseid === b.courseid && this.user === b.EmailId) {
-              this.courselist[i].enrolled = true;
+              this.courseList[i].enrolled = true;
             }
           })
         })
@@ -37,6 +38,7 @@ export class CourseComponent implements OnInit {
     })
   }
 
+// To Add the Course to the courselist
   public addtoEnroll(item: any) {
     this.toastr.success('You have Enrolled Successfully')
     item.EmailId = this.user;

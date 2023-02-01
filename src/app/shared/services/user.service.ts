@@ -10,6 +10,7 @@ export class UserService {
 
   constructor(private router: Router) { }
 
+  //To Check whether user is LoggedIn
   public isLogin = () => {
     if (this.getName()) {
       return true;
@@ -19,6 +20,7 @@ export class UserService {
     }
   }
 
+  //To Get the UserDetails from LocalStorage
   public getName = () => {
     return localStorage.getItem('EmailId')
   }

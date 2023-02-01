@@ -36,7 +36,6 @@ export class CourseinfoComponent implements OnInit {
 
     })
     this.getCourse();
-    this.getAllCourse();
   }
 
   public add() {
@@ -44,20 +43,13 @@ export class CourseinfoComponent implements OnInit {
     this.showUpdate = false;
   }
 
-  /*Get Courses from Server */
+  // Get Course From Server
   public getCourse() {
     this.courseservice.getCourse(this.courseData).subscribe(res =>
       this.courseData = res)
   }
 
-/*Get All Courses from Server */
-  public getAllCourse() {
-    this.courseservice.getCourse(this.courseData)
-      .subscribe(res =>
-        this.courseData = res)
-  }
-
-  /* Edit the Course */
+  // To Edit the Content
   public onEdit(data: CourseModel) {
     this.showAdd = false;
     this.showUpdate = true;
@@ -70,12 +62,12 @@ export class CourseinfoComponent implements OnInit {
     })
   }
 
-  
+  //To Update the Content 
   public updateCourseDetails(id: number) {
     this.courseObj = this.courseForm.value;
     this.courseservice.updateCourse(this.courseForm.value, id).subscribe(res => {
       this.courseForm.reset();
-      this.getAllCourse();
+      this.getCourse();
       this.toastr.success("Course Updated Successfully");
     },
       (_err: any) => {
@@ -84,11 +76,12 @@ export class CourseinfoComponent implements OnInit {
       })
   }
 
+  // To add the Content 
   public postCourseDetails() {
     this.courseObj = this.courseForm.value;
     this.courseservice.postCourse(this.courseObj).subscribe(res => {
       this.courseForm.reset();
-      this.getAllCourse();
+      this.getCourse();
       this.toastr.success("Course Added Successfully")
     },
       (_err: any) => {
@@ -96,14 +89,16 @@ export class CourseinfoComponent implements OnInit {
       })
   }
 
+// To Delete the Content
   public deleteCourse(item: CourseList) {
     this.courseservice.deleteCourse(item.id)
       .subscribe(res => {
         this.toastr.warning("Course Deleted");
-        this.getAllCourse();
+        this.getCourse();
       })
   }
 
+  // To Add Photo
   public onFile(input: any) {
     console.log(input.files); if (input.files && input.files[0]) {
       var reader = new FileReader(); reader.onload = (event: any) => {

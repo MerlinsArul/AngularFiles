@@ -34,7 +34,6 @@ export class UserinfoComponent implements OnInit {
       Password: ['']
     })
     this.getUser();
-    this.getAllUser();
   }
 
   public add() {
@@ -42,17 +41,13 @@ export class UserinfoComponent implements OnInit {
     this.showUpdate = false;
   }
 
+  // To Get the User Details from Server
   public getUser() {
     this.json.getUser(this.userData).subscribe(res =>
       this.userData = res)
   }
 
-  public getAllUser() {
-    this.json.getUser(this.userData)
-      .subscribe(res =>
-        this.userData = res)
-  }
-
+  // To Edit the Content
   public onEdit(d: UserModel) {
     this.showAdd = false
     this.showUpdate = true;
@@ -65,12 +60,13 @@ export class UserinfoComponent implements OnInit {
     })
   }
 
+  //To Update the Content
   public updateUserDetails(id: number) {
     this.userObj = this.formValue.value
     this.json.updateUser(this.formValue.value, id).subscribe(res => {
       console.log(res);
       this.formValue.reset();
-      this.getAllUser();
+      this.getUser();
       this.toastr.success("User Detail Updated Successfully")
     },
       (_err: any) => {
@@ -78,11 +74,12 @@ export class UserinfoComponent implements OnInit {
       })
   }
 
+  //To Add the Content
   public postUserDetails() {
     this.userObj = this.formValue.value;
     this.json.postUser(this.userObj).subscribe(res => {
       this.formValue.reset();
-      this.getAllUser();
+      this.getUser();
       this.toastr.success("User Added Successfully")
     },
       (_err: any) => {
@@ -91,11 +88,12 @@ export class UserinfoComponent implements OnInit {
       })
   }
 
+  //To Delete the Content
   public deleteUser(data: UserList) {
     this.json.deleteUser(data['id'])
       .subscribe(res => {
         this.toastr.warning("User Deleted successfully")
-        this.getAllUser();
+        this.getUser();
       })
   }
 }

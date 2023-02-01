@@ -28,6 +28,7 @@ export class SignupComponent implements OnInit {
   }
   get f() { return this.registerForm.controls; }
 
+//To Add the User Details to Server
   public signUp() {
     this.submitted = true;
     if (this.registerForm.invalid) {
