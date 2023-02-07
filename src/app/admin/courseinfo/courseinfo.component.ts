@@ -43,13 +43,13 @@ export class CourseinfoComponent implements OnInit {
     this.showUpdate = false;
   }
 
-  // Get Course From Server
+ /**Get the  course details from server */
   public getCourse() {
     this.courseservice.getCourse(this.courseData).subscribe(res =>
       this.courseData = res)
   }
 
-  // To Edit the Content
+ /**Used to Edit the content available in coursedetails */
   public onEdit(data: CourseModel) {
     this.showAdd = false;
     this.showUpdate = true;
