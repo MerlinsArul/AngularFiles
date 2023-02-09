@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css?family=IM+Fell+French+Canon+SC|Josefin+Sans');
+@import url("https://fonts.googleapis.com/css?family=IM+Fell+French+Canon+SC|Josefin+Sans");
 
 body {
   background-color: #0066cc;
@@ -15,16 +15,16 @@ body {
 
 h1,
 h4 {
-  font-family: 'IM Fell French Canon SC', serif;
+  font-family: "IM Fell French Canon SC", serif;
   text-align: center;
   padding-bottom: 1%;
 }
 
 button {
   float: right;
-  font-family: 'Josefin Sans', sans-serif;
+  font-family: "Josefin Sans", sans-serif;
 }
 
 form {
-  font-family: 'Josefin Sans', sans-serif;
+  font-family: "Josefin Sans", sans-serif;
 }

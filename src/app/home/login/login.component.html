@@ -4,18 +4,51 @@
     <h4 class="card-header">Login</h4>
     <form [formGroup]="loginForm">
       <label for="exampleInputEmail1" class="form-label">Email address</label>
-      <input type="email" [(ngModel)]="loginArray.EmailId" formControlName="EmailId" class="form-control"
-        placeholder="enter email id">
-      <small *ngIf="loginForm.get('EmailId')?.invalid && loginForm.get('EmailId')?.touched" class="text-danger">Email is
-        required</small>
+      <input
+        type="email"
+        [(ngModel)]="loginArray.EmailId"
+        formControlName="EmailId"
+        class="form-control"
+        placeholder="enter email id"
+      />
+      <small
+        *ngIf="
+          loginForm.get('EmailId')?.invalid && loginForm.get('EmailId')?.touched
+        "
+        class="text-danger"
+        >Email is required</small
+      >
       <label for="exampleInputPassword1" class="form-label">Password</label>
-      <input type="password" [(ngModel)]="loginArray.password" formControlName="password" class="form-control"
-        placeholder="enter password">
-      <small *ngIf="loginForm.get('password')?.invalid && loginForm.get('password')?.touched"
-        class="text-danger">password is Required</small><br>
-      <button type="submit" [disabled]="loginForm.invalid" class="btn btn-primary" (click)="login()">Login</button>	&nbsp;
-      <button type="submit"  class="btn btn-primary" (click)="close()">Close</button>
+      <input
+        type="password"
+        [(ngModel)]="loginArray.password"
+        formControlName="password"
+        class="form-control"
+        placeholder="enter password"
+      />
+      <small
+        *ngIf="
+          loginForm.get('password')?.invalid &&
+          loginForm.get('password')?.touched
+        "
+        class="text-danger"
+        >password is Required</small
+      ><br />
+      <button
+        type="submit"
+        [disabled]="loginForm.invalid"
+        class="btn btn-primary"
+        (click)="login()"
+      >
+        Login
+      </button>
+      &nbsp;
+      <button type="submit" class="btn btn-primary" (click)="close()">
+        Close
+      </button>
     </form>
-    <a style="color:blue;margin-top:10px;" routerLink="/signup">New user? Click to signup</a>
+    <a style="color: blue; margin-top: 10px" routerLink="/signup"
+      >New user? Click to signup</a
+    >
   </div>
 </div>

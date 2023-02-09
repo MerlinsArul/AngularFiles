@@ -24,17 +24,16 @@
 }
 
 .body img {
-  width: 100
+  width: 100;
 }
 
 label {
   font-size: medium;
-  font-family: 'Times New Roman', Times, serif;
+  font-family: "Times New Roman", Times, serif;
   font-weight: lighter;
   text-indent: 0ch;
   display: block;
   margin-bottom: 10px;
-
 }
 
 input {
@@ -43,7 +42,6 @@ input {
 }
 
 .card-header {
-  font-family: 'Times New Roman', Times, serif;
+  font-family: "Times New Roman", Times, serif;
   font-size: large;
-
 }

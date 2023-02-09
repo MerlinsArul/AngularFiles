@@ -4,13 +4,12 @@ import { EnrollService } from '../enroll.service';
 @Component({
   selector: 'app-coursefile',
   templateUrl: './coursefile.component.html',
-  styleUrls: ['./coursefile.component.css']
+  styleUrls: ['./coursefile.component.css'],
 })
-
 export class CoursefileComponent {
   public courses: any;
 
-  constructor(private enrollservice: EnrollService) { }
+  constructor(private enrollservice: EnrollService) {}
 
   ngOnInit(): void {
     this.getCourse();
@@ -19,13 +18,12 @@ export class CoursefileComponent {
   public getCourse() {
     this.enrollservice.getCourse().subscribe((res: any) => {
       this.courses = res;
-    })
+    });
   }
 
   public getAllCourse() {
-    this.enrollservice.getCourse()
-      .subscribe((res: any) => {
-        this.courses = res;
-      })
+    this.enrollservice.getCourse().subscribe((res: any) => {
+      this.courses = res;
+    });
   }
 }

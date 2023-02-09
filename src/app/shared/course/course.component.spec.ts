@@ -11,10 +11,12 @@ describe('CourseComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       declarations: [CourseComponent],
-      providers: [HttpClient,
-        HttpHandler, { provide: ToastrService, useValue: ToastrService }]
-    })
-      .compileComponents();
+      providers: [
+        HttpClient,
+        HttpHandler,
+        { provide: ToastrService, useValue: ToastrService },
+      ],
+    }).compileComponents();
 
     fixture = TestBed.createComponent(CourseComponent);
     component = fixture.componentInstance;

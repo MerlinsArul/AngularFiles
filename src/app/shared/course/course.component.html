@@ -1,22 +1,43 @@
 <div>
-    <app-header></app-header>
+  <app-header></app-header>
 </div>
 <div class="body">
-    <div class="container">
-        <div class="row">
-            <ng-container *ngFor="let item of courseList">
-                <div class="card col-md-3">
-                    <img src="{{item.image}}" alt="...">
-                    <h3
-                        style="white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:100ch;font-family: 'Times New Roman', Times, serif;">
-                        {{item.title}}</h3>
-                    <p style="white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:100ch;">
-                        {{item.description}}</p>
-                    <button disabled="{{item.enrolled}}" class="btn"
-                        (click)="addtoEnroll(item)">{{item.enrolled?'Enrolled':'Enroll'}}</button>
-                </div>
-            </ng-container>
+  <div class="container">
+    <div class="row">
+      <ng-container *ngFor="let item of courseList">
+        <div class="card col-md-3">
+          <img src="{{ item.image }}" alt="..." />
+          <h3
+            style="
+              white-space: nowrap;
+              overflow: hidden;
+              text-overflow: ellipsis;
+              max-width: 100ch;
+              font-family: 'Times New Roman', Times, serif;
+            "
+          >
+            {{ item.title }}
+          </h3>
+          <p
+            style="
+              white-space: nowrap;
+              overflow: hidden;
+              text-overflow: ellipsis;
+              max-width: 100ch;
+            "
+          >
+            {{ item.description }}
+          </p>
+          <button
+            disabled="{{ item.enrolled }}"
+            class="btn"
+            (click)="addtoEnroll(item)"
+          >
+            {{ item.enrolled ? "Enrolled" : "Enroll" }}
+          </button>
         </div>
+      </ng-container>
     </div>
+  </div>
 </div>
 <app-footer></app-footer>

@@ -1,39 +1,41 @@
 <app-header></app-header>
 <div class="body">
-    <div class="container">
-        <ng-container *ngFor="let item of courses">
-            <div class="container-fluid">
-                <div class="row">
-                    <div class="card">
-                        <div class="card-horizontal">
-                            <div class="img-square-wrapper">
-                                <img class="" src="{{item.image}}" alt="Card image cap">
-                            </div>
-                            <div class="card-body">
-                                <h3 class="card-title">{{item.title}}</h3>
-                                <p class="card-text">{{item.description}}</p>
-                            </div>
-                            <div class="delete">
-                                <button class="btn btn-danger" (click)="delete(item)"><i
-                                        class="fas fa-trash"></i></button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+  <div class="container">
+    <ng-container *ngFor="let item of courses">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="card">
+            <div class="card-horizontal">
+              <div class="img-square-wrapper">
+                <img class="" src="{{ item.image }}" alt="Card image cap" />
+              </div>
+              <div class="card-body">
+                <h3 class="card-title">{{ item.title }}</h3>
+                <p class="card-text">{{ item.description }}</p>
+              </div>
+              <div class="delete">
+                <button class="btn btn-danger" (click)="delete(item)">
+                  <i class="fas fa-trash"></i>
+                </button>
+              </div>
             </div>
-        </ng-container>
-        <hr>
-        <div>
-            <button routerLink="/course" class="btn btn-success">Enroll more </button> &nbsp;
-            <button routerLink="/checkout" class="btn btn-warning">Checkout </button>
+          </div>
         </div>
-        <ng-container *ngIf="courses.length==0">
-            <div class="center">
-                <h4>Your course is Empty!!</h4>
-                <h6>Add item to it</h6>
-                <button routerLink="/course" class="btn btn-dark">Enroll now </button>
-            </div>
-        </ng-container>
+      </div>
+    </ng-container>
+    <hr />
+    <div>
+      <button routerLink="/course" class="btn btn-success">Enroll more</button>
+      &nbsp;
+      <button routerLink="/checkout" class="btn btn-warning">Checkout</button>
     </div>
+    <ng-container *ngIf="courses.length == 0">
+      <div class="center">
+        <h4>Your course is Empty!!</h4>
+        <h6>Add item to it</h6>
+        <button routerLink="/course" class="btn btn-dark">Enroll now</button>
+      </div>
+    </ng-container>
+  </div>
 </div>
 <app-footer></app-footer>

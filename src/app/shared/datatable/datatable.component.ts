@@ -3,20 +3,17 @@ import { Component, Input, EventEmitter, Output, OnInit } from '@angular/core';
 @Component({
   selector: 'app-datatable',
   templateUrl: './datatable.component.html',
-  styleUrls: ['./datatable.component.css']
+  styleUrls: ['./datatable.component.css'],
 })
-
 export class DatatableComponent implements OnInit {
-
   @Input() Attribute: any[] = [];
   @Input() Attr: any[] = [];
   @Output() onEdit = new EventEmitter<any>();
   @Output() onDelete = new EventEmitter<any>();
 
-  constructor() { }
+  constructor() {}
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {}
 
   public edit(item: {}) {
     this.onEdit.emit(item);

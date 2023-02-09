@@ -6,15 +6,14 @@ import { RoleComponent } from './role/role.component';
 import { UserinfoComponent } from './userinfo/userinfo.component';
 
 const routes: Routes = [
-  { path: "userinfo", component: UserinfoComponent },
-  { path: 'courseinfo', component: CourseinfoComponent, },
+  { path: 'userinfo', component: UserinfoComponent },
+  { path: 'courseinfo', component: CourseinfoComponent },
   { path: 'admin', component: AdminComponent },
-  { path: 'role', component: RoleComponent }
+  { path: 'role', component: RoleComponent },
 ];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-
-export class AdminRoutingModule { }
+export class AdminRoutingModule {}

@@ -24,7 +24,7 @@
 
 label {
   font-size: medium;
-  font-family: 'Times New Roman', Times, serif;
+  font-family: "Times New Roman", Times, serif;
   font-weight: lighter;
   display: block;
   margin-bottom: 10px;
@@ -36,7 +36,6 @@ input {
 }
 
 .card-header {
-  font-family: 'Times New Roman', Times, serif;
+  font-family: "Times New Roman", Times, serif;
   font-size: large;
-
 }

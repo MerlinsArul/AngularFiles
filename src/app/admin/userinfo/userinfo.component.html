@@ -4,37 +4,64 @@
     <h1>User Personal Info</h1>
   </div>
   <div class="d-flex">
-    <button type="button" (click)="add()" data-toggle="modal" data-target="#exampleModal" class="btn btn-light">Add
-      User</button>&nbsp;
-    <button type="button" data-toggle="modal" data-target="#exampleModal" class="btn btn-light">Edit User</button>
+    <button
+      type="button"
+      (click)="add()"
+      data-toggle="modal"
+      data-target="#exampleModal"
+      class="btn btn-light"
+    >
+      Add User</button
+    >&nbsp;
+    <button
+      type="button"
+      data-toggle="modal"
+      data-target="#exampleModal"
+      class="btn btn-light"
+    >
+      Edit User
+    </button>
   </div>
   <button class="btnborder">
-    <i style="font-size:30px;" routerLink="/admin" class="fas fa-home"></i>
+    <i style="font-size: 30px" routerLink="/admin" class="fas fa-home"></i>
   </button>
 </nav>
 <div class="home-section">
   <div class="container-fluid">
     <div class="card">
-      <div class="card-header bg-primary text-white">
-        User Info
-      </div>
+      <div class="card-header bg-primary text-white">User Info</div>
       <div class="card-body">
         <div class="row">
           <div class="col-md-12">
-            <app-datatable [Attribute]="attribute" [Attr]="userData" (onEdit)="onEdit($event)"
-              (onDelete)="deleteUser($event)"></app-datatable>
+            <app-datatable
+              [Attribute]="attribute"
+              [Attr]="userData"
+              (onEdit)="onEdit($event)"
+              (onDelete)="deleteUser($event)"
+            ></app-datatable>
           </div>
         </div>
       </div>
     </div>
   </div>
-  <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-    aria-hidden="true">
+  <div
+    class="modal fade"
+    id="exampleModal"
+    tabindex="-1"
+    role="dialog"
+    aria-labelledby="exampleModalLabel"
+    aria-hidden="true"
+  >
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header">
           <h5 class="modal-title" id="exampleModalLabel">User detail</h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <button
+            type="button"
+            class="close"
+            data-dismiss="modal"
+            aria-label="Close"
+          >
             <span aria-hidden="true">&times;</span>
           </button>
         </div>
@@ -42,23 +69,58 @@
           <form [formGroup]="formValue">
             <div class="form-group">
               <label for="exampleInputEmail1">Firstname</label>
-              <input type="text" formControlName="Firstname" class="form-control" placeholder="Firstname">
+              <input
+                type="text"
+                formControlName="Firstname"
+                class="form-control"
+                placeholder="Firstname"
+              />
             </div>
             <div class="form-group">
               <label for="exampleInputEmail1">Lastname</label>
-              <input type="text" formControlName="Lastname" class="form-control" placeholder="Lastname">
+              <input
+                type="text"
+                formControlName="Lastname"
+                class="form-control"
+                placeholder="Lastname"
+              />
             </div>
             <div class="form-group">
               <label for="exampleInputEmail1">EmailId</label>
-              <input type="email" formControlName="EmailId" class="form-control" placeholder="email">
+              <input
+                type="email"
+                formControlName="EmailId"
+                class="form-control"
+                placeholder="email"
+              />
             </div>
           </form>
         </div>
         <div class="modal-footer">
-          <button type="button" id="cancel" class="btn btn-secondary" data-dismiss="modal">Close</button>
-          <button *ngIf="showAdd" type="button" (click)="postUserDetails()" class="btn btn-primary">Add</button>
-          <button *ngIf="showUpdate" type="button" (click)="updateUserDetails(userObj.id)"
-            class="btn btn-primary">Update</button>
+          <button
+            type="button"
+            id="cancel"
+            class="btn btn-secondary"
+            data-dismiss="modal"
+          >
+            Close
+          </button>
+          <button
+            *ngIf="showAdd"
+            type="button"
+            (click)="postUserDetails()"
+            class="btn btn-primary"
+          >
+            Add
+          </button>
+          <button
+            *ngIf="showUpdate"
+            type="button"
+            (click)="updateUserDetails(userObj.id)"
+            class="btn btn-primary"
+          >
+            Update
+          </button>
         </div>
       </div>
     </div>

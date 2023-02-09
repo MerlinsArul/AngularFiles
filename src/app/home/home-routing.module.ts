@@ -7,16 +7,15 @@ import { LoginComponent } from './login/login.component';
 import { SignupComponent } from './signup/signup.component';
 
 const routes: Routes = [
-  { path: 'login', component: LoginComponent ,canActivate:[LoginGuard]},
+  { path: 'login', component: LoginComponent, canActivate: [LoginGuard] },
   { path: 'signup', component: SignupComponent },
   { path: 'aboutus', component: AboutusComponent },
   { path: 'contact', component: ContactComponent },
-  { path: 'contact', component: ContactComponent }
+  { path: 'contact', component: ContactComponent },
 ];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-
-export class HomeRoutingModule { }
+export class HomeRoutingModule {}

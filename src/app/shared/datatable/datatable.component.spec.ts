@@ -1,5 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import {DatatableComponent} from './datatable.component'
+import { DatatableComponent } from './datatable.component';
 
 describe('DatatableComponent', () => {
   let component: DatatableComponent;
@@ -7,9 +7,8 @@ describe('DatatableComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [DatatableComponent]
-    })
-      .compileComponents();
+      declarations: [DatatableComponent],
+    }).compileComponents();
 
     fixture = TestBed.createComponent(DatatableComponent);
     component = fixture.componentInstance;

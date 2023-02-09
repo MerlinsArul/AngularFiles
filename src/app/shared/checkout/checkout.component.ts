@@ -5,27 +5,26 @@ import { Router } from '@angular/router';
 @Component({
   selector: 'app-checkout',
   templateUrl: './checkout.component.html',
-  styleUrls: ['./checkout.component.css']
+  styleUrls: ['./checkout.component.css'],
 })
-
 export class CheckoutComponent implements OnInit {
   public checkoutForm: any = FormGroup;
 
-  constructor(private router: Router) { }
+  constructor(private router: Router) {}
 
   ngOnInit(): void {
     this.checkoutForm = new FormGroup({
       EmailId: new FormControl('', Validators.email),
       password: new FormControl('', Validators.required),
       phonenumber: new FormControl('', Validators.required),
-    })
+    });
   }
 
   public explore() {
-    this.router.navigate(['/coursefile'])
+    this.router.navigate(['/coursefile']);
   }
 
   public close() {
-    this.router.navigate(['/enroll'])
+    this.router.navigate(['/enroll']);
   }
 }

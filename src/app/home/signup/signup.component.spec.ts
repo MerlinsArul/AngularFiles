@@ -12,11 +12,13 @@ describe('SignupComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       declarations: [SignupComponent],
-      providers: [FormBuilder,
+      providers: [
+        FormBuilder,
         HttpClient,
-        HttpHandler, { provide: ToastrService, useValue: ToastrService }]
-    })
-      .compileComponents();
+        HttpHandler,
+        { provide: ToastrService, useValue: ToastrService },
+      ],
+    }).compileComponents();
 
     fixture = TestBed.createComponent(SignupComponent);
     component = fixture.componentInstance;

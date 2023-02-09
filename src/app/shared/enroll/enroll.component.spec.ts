@@ -10,10 +10,12 @@ describe('EnrollComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       declarations: [EnrollComponent],
-      providers:[HttpClient,
-      HttpHandler,{provide:ToastrService, useValue:ToastrService}]
-    })
-      .compileComponents();
+      providers: [
+        HttpClient,
+        HttpHandler,
+        { provide: ToastrService, useValue: ToastrService },
+      ],
+    }).compileComponents();
 
     fixture = TestBed.createComponent(EnrollComponent);
     component = fixture.componentInstance;

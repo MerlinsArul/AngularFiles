@@ -7,23 +7,26 @@ import { ToastrService } from 'ngx-toastr';
 @Component({
   selector: 'app-userinfo',
   templateUrl: './userinfo.component.html',
-  styleUrls: ['./userinfo.component.css']
+  styleUrls: ['./userinfo.component.css'],
 })
-
 export class UserinfoComponent implements OnInit {
   public showAdd!: boolean;
   public showUpdate!: boolean;
-  public formValue!: FormGroup
-  public userObj: UserModel = new UserModel()
+  public formValue!: FormGroup;
+  public userObj: UserModel = new UserModel();
   public userData: any;
 
-  constructor(private formbuilder: FormBuilder, private json: UsersideService, private toastr: ToastrService) { }
+  constructor(
+    private formbuilder: FormBuilder,
+    private json: UsersideService,
+    private toastr: ToastrService
+  ) {}
 
   public attribute = [
-    { 'Head': 'Firstname', 'FieldName': 'Firstname' },
-    { 'Head': 'Lastname', 'FieldName': 'Lastname' },
-    { 'Head': 'EmailId', 'FieldName': 'EmailId' },
-    { 'Head': 'Action', 'FieldName': '' }
+    { Head: 'Firstname', FieldName: 'Firstname' },
+    { Head: 'Lastname', FieldName: 'Lastname' },
+    { Head: 'EmailId', FieldName: 'EmailId' },
+    { Head: 'Action', FieldName: '' },
   ];
 
   public ngOnInit(): void {
@@ -31,8 +34,8 @@ export class UserinfoComponent implements OnInit {
       Firstname: [''],
       Lastname: [''],
       EmailId: [''],
-      Password: ['']
-    })
+      Password: [''],
+    });
     this.getUser();
   }
 
@@ -43,58 +46,58 @@ export class UserinfoComponent implements OnInit {
 
   // To Get the User Details from Server
   public getUser() {
-    this.json.getUser(this.userData).subscribe(res =>
-      this.userData = res)
+    this.json.getUser(this.userData).subscribe((res) => (this.userData = res));
   }
 
   // To Edit the Content
   public onEdit(d: UserModel) {
-    this.showAdd = false
+    this.showAdd = false;
     this.showUpdate = true;
-    this.userObj.id = d.id
+    this.userObj.id = d.id;
     this.formValue = this.formbuilder.group({
       Firstname: [d.Firstname],
       Lastname: [d.Lastname],
       EmailId: [d.EmailId],
-      Password: [d.password]
-    })
+      Password: [d.password],
+    });
   }
 
   //To Update the Content
   public updateUserDetails(id: number) {
-    this.userObj = this.formValue.value
-    this.json.updateUser(this.formValue.value, id).subscribe(res => {
-      console.log(res);
-      this.formValue.reset();
-      this.getUser();
-      this.toastr.success("User Detail Updated Successfully")
-    },
+    this.userObj = this.formValue.value;
+    this.json.updateUser(this.formValue.value, id).subscribe(
+      (res) => {
+        console.log(res);
+        this.formValue.reset();
+        this.getUser();
+        this.toastr.success('User Detail Updated Successfully');
+      },
       (_err: any) => {
-        alert("something went wrong")
-      })
+        alert('something went wrong');
+      }
+    );
   }
 
   //To Add the Content
   public postUserDetails() {
     this.userObj = this.formValue.value;
-    this.json.postUser(this.userObj).subscribe(res => {
-      this.formValue.reset();
-      this.getUser();
-      this.toastr.success("User Added Successfully")
-    },
+    this.json.postUser(this.userObj).subscribe(
+      (res) => {
+        this.formValue.reset();
+        this.getUser();
+        this.toastr.success('User Added Successfully');
+      },
       (_err: any) => {
-        alert("something went wrong")
-
-      })
+        alert('something went wrong');
+      }
+    );
   }
 
   //To Delete the Content
   public deleteUser(data: UserList) {
-    this.json.deleteUser(data['id'])
-      .subscribe(res => {
-        this.toastr.warning("User Deleted successfully")
-        this.getUser();
-      })
+    this.json.deleteUser(data['id']).subscribe((res) => {
+      this.toastr.warning('User Deleted successfully');
+      this.getUser();
+    });
   }
 }
-

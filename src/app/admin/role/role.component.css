@@ -1,31 +1,27 @@
 .container {
-    padding: 2rem 0rem;
-    margin-left: 20%;
-
+  padding: 2rem 0rem;
+  margin-left: 20%;
 }
 
 h4 {
-    margin: 2rem 0rem 1rem;
+  margin: 2rem 0rem 1rem;
 }
 
 .table-image td,
 th {
-    vertical-align: middle;
-
+  vertical-align: middle;
 }
 
 .mynav {
-    background: #0A2558;
-    color: white;
+  background: #0a2558;
+  color: white;
 }
 
 .btnborder {
-
-    color: black;
+  color: black;
 }
 
 .coln h1 {
-
-    float: left;
-    margin-top: 16px;
+  float: left;
+  margin-top: 16px;
 }

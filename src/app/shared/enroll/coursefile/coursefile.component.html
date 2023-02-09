@@ -1,27 +1,33 @@
 <app-header></app-header>
 <div class="shell">
-    <div class="container">
-        <div class="row">
-            <ng-container *ngFor="let item of courses">
-                <div class="col-md-3">
-                    <div class="wsk-cp-product">
-                        <div class="wsk-cp-img">
-                            <img src="{{item.image}}" alt="Product" class="img-responsive" />
-                        </div>
-                        <div class="wsk-cp-text">
-                            <div class="category">
-                                <a routerLink="{{item.path}}"><button class="btn btn-warning">Explore Now</button></a>
-                            </div>
-                            <div class="title-product">
-                                <h3>{{item.title}}</h3>
-                            </div>
-                            <div class="description-prod">
-                                <p>{{item.description}}</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </ng-container>
+  <div class="container">
+    <div class="row">
+      <ng-container *ngFor="let item of courses">
+        <div class="col-md-3">
+          <div class="wsk-cp-product">
+            <div class="wsk-cp-img">
+              <img
+                src="{{ item.image }}"
+                alt="Product"
+                class="img-responsive"
+              />
+            </div>
+            <div class="wsk-cp-text">
+              <div class="category">
+                <a routerLink="{{ item.path }}"
+                  ><button class="btn btn-warning">Explore Now</button></a
+                >
+              </div>
+              <div class="title-product">
+                <h3>{{ item.title }}</h3>
+              </div>
+              <div class="description-prod">
+                <p>{{ item.description }}</p>
+              </div>
+            </div>
+          </div>
         </div>
+      </ng-container>
     </div>
+  </div>
 </div>

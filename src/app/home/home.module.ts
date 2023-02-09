@@ -15,14 +15,8 @@ import { SharedModule } from '../shared/shared.module';
     LoginComponent,
     SignupComponent,
     AboutusComponent,
-    ContactComponent
+    ContactComponent,
   ],
-  imports: [
-    CommonModule,
-    HomeRoutingModule,
-    ReactiveFormsModule,
-    SharedModule
-  ],
+  imports: [CommonModule, HomeRoutingModule, ReactiveFormsModule, SharedModule],
 })
-
-export class HomeModule { }
+export class HomeModule {}

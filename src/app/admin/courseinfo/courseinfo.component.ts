@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
-import { CourseModel } from '../../shared/Model/Course'
+import { CourseModel } from '../../shared/Model/Course';
 import { CourseService } from 'src/app/shared/course/course.service';
 import { ToastrService } from 'ngx-toastr';
 import { CourseList } from '../../shared/Model/Course';
@@ -8,23 +8,26 @@ import { CourseList } from '../../shared/Model/Course';
 @Component({
   selector: 'app-courseinfo',
   templateUrl: './courseinfo.component.html',
-  styleUrls: ['./courseinfo.component.css']
+  styleUrls: ['./courseinfo.component.css'],
 })
-
 export class CourseinfoComponent implements OnInit {
   public showAdd!: boolean;
   public showUpdate!: boolean;
-  public courseForm!: FormGroup
-  public courseObj: CourseModel = new CourseModel
+  public courseForm!: FormGroup;
+  public courseObj: CourseModel = new CourseModel();
   public courseData: any;
 
-  constructor(private formbuilder: FormBuilder, private courseservice: CourseService, private toastr: ToastrService) { }
+  constructor(
+    private formbuilder: FormBuilder,
+    private courseservice: CourseService,
+    private toastr: ToastrService
+  ) {}
 
   public attribute = [
-    { 'Head': 'CourseId', 'FieldName': 'courseid' },
-    { 'Head': 'CourseName', 'FieldName': 'title' },
-    { 'Head': 'Description', 'FieldName': 'description' },
-    { 'Head': 'Action', 'FieldName': '' }
+    { Head: 'CourseId', FieldName: 'courseid' },
+    { Head: 'CourseName', FieldName: 'title' },
+    { Head: 'Description', FieldName: 'description' },
+    { Head: 'Action', FieldName: '' },
   ];
 
   public ngOnInit(): void {
@@ -32,9 +35,8 @@ export class CourseinfoComponent implements OnInit {
       courseid: [''],
       title: [''],
       description: [''],
-      image: ['']
-
-    })
+      image: [''],
+    });
     this.getCourse();
   }
 
@@ -43,73 +45,75 @@ export class CourseinfoComponent implements OnInit {
     this.showUpdate = false;
   }
 
- /**Get the  course details from server */
+  /**Get the  course details from server */
   public getCourse() {
-    this.courseservice.getCourse(this.courseData).subscribe(res =>
-      this.courseData = res)
+    this.courseservice
+      .getCourse(this.courseData)
+      .subscribe((res) => (this.courseData = res));
   }
 
- /**Used to Edit the content available in coursedetails */
+  /**Used to Edit the content available in coursedetails */
   public onEdit(data: CourseModel) {
     this.showAdd = false;
     this.showUpdate = true;
-    this.courseObj.id = data.id
+    this.courseObj.id = data.id;
     this.courseForm = this.formbuilder.group({
       courseid: [data.courseid],
       title: [data.title],
       description: [data.description],
-      image: ['']
-    })
+      image: [''],
+    });
   }
 
-  //To Update the Content 
+  //To Update the Content
   public updateCourseDetails(id: number) {
     this.courseObj = this.courseForm.value;
-    this.courseservice.updateCourse(this.courseForm.value, id).subscribe(res => {
-      this.courseForm.reset();
-      this.getCourse();
-      this.toastr.success("Course Updated Successfully");
-    },
+    this.courseservice.updateCourse(this.courseForm.value, id).subscribe(
+      (res) => {
+        this.courseForm.reset();
+        this.getCourse();
+        this.toastr.success('Course Updated Successfully');
+      },
       (_err: any) => {
         console.log('errr', _err);
-        alert("something went wrong")
-      })
+        alert('something went wrong');
+      }
+    );
   }
 
-  // To add the Content 
+  // To add the Content
   public postCourseDetails() {
     this.courseObj = this.courseForm.value;
-    this.courseservice.postCourse(this.courseObj).subscribe(res => {
-      this.courseForm.reset();
-      this.getCourse();
-      this.toastr.success("Course Added Successfully")
-    },
+    this.courseservice.postCourse(this.courseObj).subscribe(
+      (res) => {
+        this.courseForm.reset();
+        this.getCourse();
+        this.toastr.success('Course Added Successfully');
+      },
       (_err: any) => {
-        alert("something went wrong")
-      })
+        alert('something went wrong');
+      }
+    );
   }
 
-// To Delete the Content
+  // To Delete the Content
   public deleteCourse(item: CourseList) {
-    this.courseservice.deleteCourse(item.id)
-      .subscribe(res => {
-        this.toastr.warning("Course Deleted");
-        this.getCourse();
-      })
+    this.courseservice.deleteCourse(item.id).subscribe((res) => {
+      this.toastr.warning('Course Deleted');
+      this.getCourse();
+    });
   }
 
   // To Add Photo
   public onFile(input: any) {
-    console.log(input.files); if (input.files && input.files[0]) {
-      var reader = new FileReader(); reader.onload = (event: any) => {
+    console.log(input.files);
+    if (input.files && input.files[0]) {
+      var reader = new FileReader();
+      reader.onload = (event: any) => {
         console.log('Got here: ', event.target.result);
         this.courseObj.image = event.target.result;
-      }
+      };
       reader.readAsDataURL(input.files[0]);
     }
   }
 }
-
-
-
-

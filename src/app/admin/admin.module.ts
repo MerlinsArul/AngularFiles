@@ -10,19 +10,18 @@ import { RoleComponent } from './role/role.component';
 import { SharedModule } from '../shared/shared.module';
 
 @NgModule({
-    declarations: [
-        UserinfoComponent,
-        CourseinfoComponent,
-        SidenavComponent,
-        AdminComponent,
-        RoleComponent,
-    ],
-    imports: [
-        CommonModule,
-        AdminRoutingModule,
-        ReactiveFormsModule,
-        SharedModule
-    ]
+  declarations: [
+    UserinfoComponent,
+    CourseinfoComponent,
+    SidenavComponent,
+    AdminComponent,
+    RoleComponent,
+  ],
+  imports: [
+    CommonModule,
+    AdminRoutingModule,
+    ReactiveFormsModule,
+    SharedModule,
+  ],
 })
-
-export class AdminModule { }
+export class AdminModule {}
