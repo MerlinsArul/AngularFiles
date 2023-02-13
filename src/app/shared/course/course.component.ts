@@ -25,6 +25,7 @@ export class CourseComponent implements OnInit {
 
   // To Check whether the course is enrolled or not
   public check() {
+    
     this.enrollservice.enroll(this.enrolList).subscribe((res) => {
       console.log(res);
       this.courseservice.getCourse(this.courseList).subscribe((res1) => {
@@ -39,8 +40,9 @@ export class CourseComponent implements OnInit {
         });
       });
     });
-  }
+   }
 
+  
   // To Add the Course to the courselist
   public addtoEnroll(item: any) {
     this.toastr.success('You have Enrolled Successfully');

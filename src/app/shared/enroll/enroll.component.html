@@ -27,7 +27,7 @@
     <div>
       <button routerLink="/course" class="btn btn-success">Enroll more</button>
       &nbsp;
-      <button routerLink="/checkout" class="btn btn-warning">Checkout</button>
+      <button  (click)="emptyCart(this.courses)"   class="btn btn-warning">Checkout</button>
     </div>
     <ng-container *ngIf="courses.length == 0">
       <div class="center">

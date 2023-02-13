@@ -1,7 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { map } from 'rxjs';
+import { BehaviorSubject, map } from 'rxjs';
 import { environment } from 'src/environments/environment';
+
 
 
 @Injectable({
@@ -11,7 +12,6 @@ import { environment } from 'src/environments/environment';
 export class EnrollService {
   public courselist = ([])
   public enrolllist = ([])
-
   constructor(private http: HttpClient) { }
 
   public getCourse() {
@@ -20,8 +20,24 @@ export class EnrollService {
   }
 
   public addtoEnroll(product: {}) {
-    return this.http.post(environment.baseUrl + "/enroll/", product);
+    return this.http.post(environment.baseUrl + "/enroll/", product).pipe(map(res=>{
+     return res;
+}))
+
   }
+
+public addToOrder(product:{}){
+  return this.http.post(environment.baseUrl + "/orders/", product).pipe(map(res=>{
+    return res;
+  }))
+
+}
+
+public getOrder(){
+  const user = localStorage.getItem("EmailId");
+    return this.http.get(environment.baseUrl + "/orders?EmailId=" + user)
+}
+  
 
   public deleteEnroll(id: Number) {
     return this.http.delete<any>(environment.baseUrl + "/enroll/" + id)
@@ -31,9 +47,10 @@ export class EnrollService {
   }
 
   public enroll(product: {}) {
-    return this.http.get(environment.baseUrl + "/enroll/", product)
+    return this.http.get(environment.baseUrl + "/orders/", product)
       .pipe(map((res: any) => {
         return res;
       }));
   }
+
 }
